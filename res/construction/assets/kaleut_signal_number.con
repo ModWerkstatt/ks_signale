@@ -1,0 +1,157 @@
+﻿local letters = {"-","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",}
+function data()
+return {
+	type = "ASSET_TRACK",
+	description = {
+		name = _("KS Signalnummer"),
+		description = _("")
+	},
+	availability = {
+		yearFrom = 1993
+	},
+	buildMode = "MULTI",
+	categories = { "MW Signal Assets" },
+	order = 1,
+	skipCollision = true,
+	autoRemovable = false,
+
+	params = {	
+		{
+			key = "autoNumber",
+			name = _("Automatische Nummern"),
+			values = { _("ja"), _("nein") },
+			defaultIndex = 0,
+			tooltip = _("tooltip_autoNumber"),
+		},
+		{
+			key = "signalPoleType",
+			name = _("Masttyp"),
+			values = { _("Flachmast"), _("Auslegermast kurz"), _("Auslegermast lang"), _("Signalbrücke"), _("Sperrsignal tief"), _("Sperrsignal hoch") },
+			defaultIndex = 0,
+			tooltip = _("tooltip_masttyp"),
+		},
+		{
+			key = "signalPosition",
+			name = _("Standort"),
+			values = { _("Rechts"), _("Links") },
+			defaultIndex = 0,
+			tooltip = _("tooltip_position"),
+		},
+		{
+			key = "zsa",
+			name = _("Zusatzanzeiger"),
+			values = { _("nein"), _("1 unterhalb"), _("2 unterhalb") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+	},
+
+	updateFn = function(params)
+		local result = {}
+		result.models =  {}	
+		result.labelText =  {}
+		result.groundFaces = { }
+		
+		local xPosition = 0
+		local zPosition = 0
+		local yPosition = 0
+		local xPositionHalter = 0
+		local scalefactor = 1
+		
+		if params.signalPosition == 0 then
+			yPosition = -2.5
+		elseif params.signalPosition == 1 then
+			yPosition = 2.5
+		end
+		
+		if params.signalPoleType == 0 then			
+			if params.zsa == 0 then
+				zPosition = 5
+				xPosition = -0.3
+				xPositionHalter = -0.20
+			elseif params.zsa == 1 then
+				zPosition = 4.89
+				xPosition = -1.07
+			elseif params.zsa == 2 then
+				zPosition = 4.79
+				xPosition = -1.07
+			end
+		elseif params.signalPoleType == 1 then
+			if params.zsa == 0 then
+				zPosition = 4.8
+				xPosition = -0.3
+				xPositionHalter = -0.20
+			elseif params.zsa == 1 then
+				zPosition = 4.89
+				xPosition = -1.07
+			elseif params.zsa == 2 then
+				zPosition = 4.79
+				xPosition = -1.07
+			end
+		elseif params.signalPoleType == 2 then
+			if params.zsa == 0 then
+				zPosition = 5.5
+				xPosition = -0.3
+				xPositionHalter = -0.20
+			elseif params.zsa == 1 then
+				zPosition = 5.62
+				xPosition = -1.07
+			elseif params.zsa == 2 then
+				zPosition = 4.79
+				xPosition = -1.07
+			end
+		elseif params.signalPoleType == 3 then
+			zPosition = 6.4
+			xPosition = 0.47
+			yPosition = -2.5
+		elseif params.signalPoleType == 4 then
+			zPosition = 1.13
+			xPosition = -0.16
+			yPosition = -2.6
+			scalefactor = 0.5
+		elseif params.signalPoleType == 5 then
+			zPosition = 4.67
+			xPosition = -0.15
+			yPosition = -2.6
+			scalefactor = 0.5
+		end	
+		
+		if params.autoNumber == 0 then
+			result.models[#result.models+1] = {
+				id = "railroad/ks_signale/zs_tafeln/ks_signalnummer_static.mdl",
+				transf = { -1 * scalefactor, 0, 0, 0, -0, -1 * scalefactor, 0, 0, 0, 0, 1 * scalefactor, 0, xPosition, yPosition, zPosition, 1 },				
+			}
+						
+			local topText = letters[math.random(#letters)] .. tostring(math.random(99))
+			local bottomText = tostring(math.random(999))
+			
+			result.labelText = {
+				[0] = { topText, bottomText}
+			}	
+		else
+			result.models[#result.models+1] = {
+					id = "railroad/ks_signale/zs_tafeln/ks_signalnummer.mdl",
+					transf = { -1, 0, 0, 0, -0, -1, 0, 0, 0, 0, 1, 0, xPosition, yPosition, zPosition, 1 },				
+				}
+		end	 
+		
+		if params.zsa == 0 and params.signalPoleType < 3 then
+			result.models[#result.models+1] = {
+                id = "railroad/ks_signale/zs_tafeln/ks_signalnummer_halter.mdl",
+                transf = { -2, 0, 0, 0, -0, -2, 0, 0, 0, 0, 2, 0, xPositionHalter, yPosition, zPosition, 1 },				
+            }
+		end
+		
+		result.groundFaces[1] = { face = { {0.01, -0.01}, { 0.01, 0.01}, {-0.01, 0.01}, {-0.01, -0.01} }, modes = { { type = "FILL", key = "industry_floor.lua" } } }
+		result.terrainAlignmentLists = {
+            {
+    			type = "EQUAL",
+    			faces =  { },
+    		},
+        }
+
+		return result
+	end
+}
+
+end

@@ -1,0 +1,43 @@
+function data()
+return {
+	boundingInfo = {
+		bbMax = { -0.3, 0.4, 6.86, },
+		bbMin = { -0.4, -0.4, 6.1, },
+	},
+	collider = {
+		params = { },
+		transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+		type = "MESH",
+	},
+	lods = {
+		{
+			node = {
+				animations = { },
+				children = {
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/zs_tafeln/ks_signal_zs3_v_12.mtl", },
+						mesh = "ks_signale/schilder/ks_zs3_tafel.msh",					
+						transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+					},
+										
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 300,
+		},	
+	},
+	metadata = {
+		availability = {
+			yearFrom = 1993,
+			yearTo = 0,
+		},
+		cost = {
+			price = -1,
+		},		
+	},
+	version = 1,
+}
+end

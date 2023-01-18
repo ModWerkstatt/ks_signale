@@ -1,0 +1,208 @@
+function data()
+trackHeightOffset = -0.2
+return {
+	boundingInfo = {
+		bbMax = { 0.8, 0, 7.5, },
+		bbMin = { -1.1, -4, -1, },
+	},
+	collider = {
+		params = { },
+		transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+		type = "MESH",
+	},
+	lods = {
+		{
+			node = {
+				animations = { },
+				children = {					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc_2.mtl", },
+						mesh = "ks_signale/masten/ks_sockel_sperrsignal.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0, 1, },
+					},								
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc_2.mtl", },
+						mesh = "ks_signale/schirme/ks_sperrsignal_kasten.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0, 1, },
+					},								
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schilder/ks_mastschild_hauptsignal_schmal.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.25, 0, -0.21, 2.25, 0.3, 1, },
+					},	
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 150,
+		},
+		-- Schuten
+		{
+			node = {
+				animations = { },
+				children = {
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc_2.mtl", },
+						mesh = "ks_signale/schirme/ks_sperrsignal_schute.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.1, 0.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc_2.mtl", },
+						mesh = "ks_signale/schirme/ks_sperrsignal_schute.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.1, 0.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc_2.mtl", },
+						mesh = "ks_signale/schirme/ks_sperrsignal_schute.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.1, -0.1, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0.35+trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 100,
+		},
+		-- optiken aus
+		{
+			node = {
+				animations = { },
+				children = {
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.18, -0.1, 0.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.18, 0.1, 0.1, 1, },
+					},					
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.18, 0.1, -0.1, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0.35+trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 200,
+		},
+		{
+			node = {
+				animations = { },
+				children = {
+					{
+						animations = {
+							green = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_back_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+							red = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_red.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.1, 0.1, 0.1, 1, },
+					},
+					{
+						animations = {
+							green = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+							red = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_back_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_white.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.1, -0.1, 0.1, 1, },
+					},
+					{
+						animations = {
+							green = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+							red = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_back_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_white.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.1, 0.1, -0.1, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0.35+trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 200,
+		},
+		{
+			node = {
+				animations = { },
+				children = {									
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc_2.mtl", },
+						mesh = "ks_signale/schirme/ks_sperrsignal_kasten.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0, 1, },
+					},			
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 150,
+			visibleTo = 300,
+		},
+	},
+	metadata = {
+		availability = {
+			yearFrom = 1993,
+			yearTo = 0,
+		},
+		cost = {
+			price = 2500,
+		},
+		description = {
+			name = _("KS LS niedrig Hp0/SH1 links Wegpunkt"),
+		},
+		category = {
+			categories = { "KS-Signal Ls", },
+		},
+		signal = {
+			type = "WAYPOINT",
+		},
+		ksSignal = {
+			side = "left",	
+			waypoint = true,
+		},
+	},
+	version = 1,
+}
+end

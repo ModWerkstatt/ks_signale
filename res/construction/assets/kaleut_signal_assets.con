@@ -1,0 +1,147 @@
+﻿function data()
+return {
+	type = "ASSET_TRACK",
+	description = {
+		name = _("KS-Signale als Assets"),
+		description = _("ks_signale_assets_desc")
+	},
+	availability = {
+		yearFrom = 1993
+	},
+	buildMode = "MULTI",
+	categories = { "MW Signal Assets" },
+	order = 1,
+	skipCollision = true,
+	autoRemovable = false,
+
+	params = {	
+		{
+			key = "signalType",
+			name = _("Ks-Signaltyp"),			
+			values = { _("ASIG"), _("BSIG"), _("MSIG"), _("MSIG als ASIG"), _("VSIG") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+		{
+			key = "signalPoleType",
+			name = _("Masttyp"),
+			values = { _("Flachmast"), _("Auslegermast kurz"), _("Auslegermast lang"), _("Signalbrücke") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+		{
+			key = "signalPosition",
+			name = _("Standort"),
+			values = { _("Rechts"), _("Links") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+		{
+			key = "zsaCount",
+			name = _("Anzahl Zusatzanzeiger"),
+			values = { _("0"), _("1"), _("2"), _("3") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+	},
+
+	updateFn = function(params)
+		local result = {}
+		result.models =  {}		
+				
+		local signalName
+		local signalTypeString
+		local signalPoleTypeString
+		local zsaCountString
+		
+		if params.signalType == 0 then			
+			signalTypeString = "asig"
+			if params.signalPoleType == 0 then
+				signalPoleTypeString = "fm"				
+			elseif (params.signalPoleType == 1 or params.signalPoleType == 2) then
+				signalPoleTypeString = "amnk"				
+			elseif params.signalPoleType == 3 then
+				signalPoleTypeString = "sbr"				
+			end
+		elseif params.signalType == 1 then			
+			signalTypeString = "bsig"
+			if (params.signalPoleType == 0 or params.signalPoleType == 1) then
+				signalPoleTypeString = "amhk"
+			elseif params.signalPoleType == 2 then
+				signalPoleTypeString = "amhl"
+			elseif params.signalPoleType == 3 then
+				signalPoleTypeString = "sbr"	
+			end
+		elseif params.signalType == 2 then			
+			signalTypeString = "msig"
+			if params.signalPoleType == 0 then
+				signalPoleTypeString = "fm"		
+			elseif params.signalPoleType == 1 then
+				signalPoleTypeString = "amhk"
+			elseif params.signalPoleType == 2 then
+				signalPoleTypeString = "amhl"
+			elseif params.signalPoleType == 3 then
+				signalPoleTypeString = "sbr"	
+			end
+		elseif params.signalType == 3 then			
+			signalTypeString = "msig_asig"
+			if params.signalPoleType == 0 then
+				signalPoleTypeString = "fm"				
+			elseif (params.signalPoleType == 1 or params.signalPoleType == 2) then
+				signalPoleTypeString = "amnk"				
+			elseif params.signalPoleType == 3 then
+				signalPoleTypeString = "sbr"				
+			end
+		elseif params.signalType == 4 then
+			signalTypeString = "vsig"
+			if params.signalPoleType == 0 then
+				signalPoleTypeString = "fm"		
+			elseif params.signalPoleType == 1 then
+				signalPoleTypeString = "amhk"
+			elseif params.signalPoleType == 2 then
+				signalPoleTypeString = "amhl"
+			elseif params.signalPoleType == 3 then
+				signalPoleTypeString = "sbr"	
+			end
+		end		
+		
+		if params.zsaCount ~= 3 then
+			zsaCountString = tostring(params.zsaCount)
+		else
+			if  params.signalType == 3 then
+				zsaCountString = tostring(params.zsaCount)
+			else
+				if (params.signalType == 2 and params.signalPoleType == 0) then
+					zsaCountString = tostring(params.zsaCount)
+				else
+					zsaCountString = "2"
+				end
+			end
+		end
+		
+		if params.signalPosition == 0 then
+			signalName = "railroad/ks_signale/assets/ks_"..signalPoleTypeString.."_"..signalTypeString.."_"..zsaCountString.."_zsa.mdl"
+		elseif params.signalPosition == 1 then
+			if (params.signalType == 0 or params.signalType == 3 or params.signalPoleType == 0 or params.signalPoleType == 3) then
+				signalName = "railroad/ks_signale/assets/ks_"..signalPoleTypeString.."_"..signalTypeString.."_"..zsaCountString.."_zsa.mdl"
+			else
+				signalName = "railroad/ks_signale/assets/ks_"..signalPoleTypeString.."_"..signalTypeString.."_"..zsaCountString.."_zsa_links.mdl"
+			end
+		end
+		result.models[#result.models+1] = {
+                id = signalName,
+                transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1.05, 1 },				
+             }
+		       
+		result.terrainAlignmentLists = {
+            {
+    			type = "EQUAL",
+    			faces =  { },
+    		},
+        }
+
+		return result
+	end
+}
+
+end

@@ -1,0 +1,141 @@
+﻿function data()
+return {
+	type = "ASSET_TRACK",
+	description = {
+		name = _("KS-Signal Zubehör"),		
+	},
+	availability = {
+		yearFrom = 1993
+	},
+	buildMode = "MULTI",
+	categories = { "MW Signal Assets" },
+	order = 1,
+	skipCollision = true,
+	autoRemovable = false,
+
+	params = {	
+		{
+			key = "signalEquipment",
+			name = _("Ks-Signal Zubehör"),
+			uiType = "ICON_BUTTON",
+			values = { "ui/construction/parameters/ks_signale/eurobalise_ui.tga", "ui/construction/parameters/ks_signale/pzb_ui.tga", "ui/construction/parameters/ks_signale/schaltkasten_gross_ui.tga", "ui/construction/parameters/ks_signale/schaltkasten_klein_ui.tga", },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+		{
+			key = "signalPoleType",
+			name = _("Masttyp"),
+			values = { _("ohne Mast"), _("Flachmast"), _("Auslegermast kurz"), _("Auslegermast lang") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+		{
+			key = "signalPosition",
+			name = _("Standort"),
+			values = { _("Rechts"), _("Links") },
+			defaultIndex = 0,
+			tooltip = _(""),
+		},
+		{
+			key = "hight",
+			name = _("Höhe"),
+			values = { _("hoch"), _("tief") },
+			defaultIndex = 0,
+			tooltip = _("Höhe beim kurzen Auslegermast."),
+		},
+	},
+
+	updateFn = function(params)
+		local result = {}
+		result.models =  {}		
+		
+		local xPosition = 0
+		local zPosition = 0
+		local yPosition = 0
+		
+		local rotation1 = 1
+		local rotation2 = 0
+		
+		local EquipName
+		if params.signalEquipment == 0 then 
+			EquipName = "eurobalise"
+			zPosition = 0.9
+			
+		elseif params.signalEquipment == 1 then
+			EquipName = "pzb_1000"
+			zPosition = 1.1
+			yPosition = -0.95
+		elseif params.signalEquipment == 2 then
+			EquipName = "signalbox_gross"
+			rotation1 = -1
+			rotation2 = -0
+			if params.signalPoleType == 1 then
+				xPosition = -0.05
+				yPosition = -2.5
+				zPosition = 1.1
+			elseif params.signalPoleType == 2 then
+				if params.signalPosition == 0 then
+					yPosition = -3.075
+				else
+					yPosition = 3.075
+				end
+				if params.hight == 0 then
+					zPosition = 1.3
+				else
+					zPosition = 0.6
+				end
+			elseif params.signalPoleType == 3 then
+				if params.signalPosition == 0 then
+					yPosition = -3.5
+				else
+					yPosition = 3.5
+				end
+				zPosition = 0.6
+			end
+			
+		elseif params.signalEquipment == 3 then
+			EquipName = "signalbox_klein"
+			rotation1 = -1
+			rotation2 = -0
+			xPosition = -0.2
+			if params.signalPoleType == 1 then				
+				yPosition = -2.5
+				zPosition = 1.2
+			elseif params.signalPoleType == 2 then				
+				if params.signalPosition == 0 then
+					yPosition = -3.075
+				else
+					yPosition = 3.075
+				end
+				if params.hight == 0 then
+					zPosition = 1.6
+				else
+					zPosition = 0.8
+				end
+			elseif params.signalPoleType == 3 then
+				if params.signalPosition == 0 then
+					yPosition = -3.5
+				else
+					yPosition = 3.5
+				end
+				zPosition = 0.9
+			end
+		end	
+		
+		result.models[#result.models+1] = {
+                id = "railroad/ks_signale/misc/ks_"..EquipName..".mdl",
+                transf = { rotation1, 0, 0, 0, rotation2, rotation1, 0, 0, 0, 0, 1, 0, xPosition, yPosition, zPosition, 1 },				
+             }
+		       
+		result.terrainAlignmentLists = {
+            {
+    			type = "EQUAL",
+    			faces =  { },
+    		},
+        }
+
+		return result
+	end
+}
+
+end

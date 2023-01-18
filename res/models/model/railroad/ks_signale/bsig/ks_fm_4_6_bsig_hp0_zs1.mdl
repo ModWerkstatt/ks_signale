@@ -1,0 +1,244 @@
+function data()
+trackHeightOffset = -0.53
+return {
+	boundingInfo = {
+		bbMax = { 0.8, 0, 7.5, },
+		bbMin = { -1.1, -4, -1, },
+	},
+	collider = {
+		params = { },
+		transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+		type = "MESH",
+	},
+	lods = {
+		{
+			node = {
+				animations = { },
+				children = {
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/misc/ks_pzb_1000.msh",					
+						transf = {1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.95, 0.55, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_halter_box_fm.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.5, 0, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/kaesten/ks_box_gross.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.03, -2.5, 0.58, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schilder/ks_mastschild_hauptsignal_schmal.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, -2.5, 2.7, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_halter_schilder.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, -2.5, 2.3, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_halter_schilder.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, -2.5, 3.1, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/masten/ks_flachmast_fuss.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.5, 0.6, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/masten/ks_sockel.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.5, 0.6, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_halter_schirm_am.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 5, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schirm_gross_lod0.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, -2.5, 5.715, 1, },
+					},									
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/koerbe/ks_korb_schirm.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11, -2.5, 5.1, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_masten.mtl", },
+						mesh = "ks_signale/masten/ks_flachmast_4_6_m.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.5, 0.6, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 150,
+		},
+		-- Schuten
+		{
+			node = {
+				animations = { },
+				children = {					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schute_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, -2.5, 6.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schute_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, -2.5, 5.85, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schute_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, -2.5, 5.45, 1, },
+					},	
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 100,
+		},
+		-- optiken aus
+		{
+			node = {
+				animations = { },
+				children = {					
+					{						
+						materials = { "ks_signale/optiken/ks_optik_red.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46, -2.5, 6.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46, -2.5, 5.85, 1, },
+					},					
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46, -2.5, 5.45, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 200,
+		},
+		{
+			node = {
+				animations = { },
+				children = {
+					{
+						animations = {
+							green = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+							red = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_back_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_red.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.39, -2.5, 6.1, 1, },
+					},
+					{						
+						animations = {
+							idle_green = {
+								params = {
+									id = "kaleut_ks_signale_1/idle_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_white.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_kl.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.39, -2.5, 5.45, 1, },
+					},	
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 200,
+		},
+		{
+			node = {
+				animations = { },
+				children = {									
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schirm_gross_lod0.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, -2.5, 5.715, 1, },
+					},				
+					{						
+						materials = { "ks_signale/misc/ks_signal_masten.mtl", },
+						mesh = "ks_signale/masten/ks_flachmast_4_6_m.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -2.5, 0.6, 1, },
+					},	
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 150,
+			visibleTo = 300,
+		},
+	},
+	metadata = {
+		availability = {
+			yearFrom = 1993,
+			yearTo = 0,
+		},
+		cost = {
+			price = 2500,
+		},
+		description = {
+			name = _("KS Bsig FM 4,6m Hp0/zs1"),
+		},
+		category = {
+			categories = { "KS-Signal Bsig FM", },
+		},
+		signal = {
+			type = "PATH_SIGNAL",
+		},
+		ksSignal = {
+			side = "right",
+			signalPole = "fm",
+			zsa = false,
+			zs3Zs3v = false,
+			zs2Zs2v = false,
+			vkb = false,
+			wied = false,
+			Kl = false,
+			Sh1 = false,
+			Zs1 = true,
+			Zs7 = false,
+			Zs6 = false,
+			Zp9 = false,
+		},
+	},
+	version = 1,
+}
+end

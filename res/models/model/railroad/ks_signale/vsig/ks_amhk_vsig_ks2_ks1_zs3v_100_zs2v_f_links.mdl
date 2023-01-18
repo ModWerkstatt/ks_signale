@@ -1,0 +1,309 @@
+function data()
+trackHeightOffset = -0.53
+return {
+	boundingInfo = {
+		bbMax = { 0.8, 4, 7.5, },
+		bbMin = { -1.1, 0, -1, },
+	},
+	collider = {
+		params = { },
+		transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+		type = "MESH",
+	},
+	lods = {
+		{
+			node = {
+				animations = { },
+				children = {
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/misc/ks_pzb_1000.msh",					
+						transf = {1, 0, 0, 0, -0, 1, 0, 0, 0, 0, 1, 0, 0, -0.95, 0.55, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/misc/ks_kabel_kurz.msh",						
+						transf = { 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 2.5, 4.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/kaesten/ks_box_gross.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 3.075, 0, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/masten/ks_aufsetzmast_anbauteile.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 4.1, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/masten/ks_auslegermast_hoch_kurz_anbauteile.msh",						
+						transf = { 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 3.075, 0, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/masten/ks_sockel.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 3.075, 0, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_halter_schirm_am.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, 2.5, 5.7, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schirm_klein_lod0.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, 2.5, 6.4, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/koerbe/ks_korb_mitte_auslegermast_kurz.msh",						
+						transf = { 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, -0.23, 3.15, 4.08, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/koerbe/ks_korb_schirm.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11, 2.5, 5.7, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schilder/ks_vorsignaltafel.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16, 3.075, 2, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_masten.mtl", },
+						mesh = "ks_signale/masten/ks_aufsetzmast_lang.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 4.08, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_masten.mtl", },
+						mesh = "ks_signale/masten/ks_auslegermast_hoch_kurz.msh",						
+						transf = { 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 3.075, 0, 1, },
+					},		
+					-- zza mitte
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_zsa_halter.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.19, 2.5, 5.07, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
+						mesh = "ks_signale/misc/ks_zsa.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, 2.5, 5.25, 1, },
+					},
+					-- zza unten
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_zsa_halter.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.19, 2.5, 4.27, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
+						mesh = "ks_signale/misc/ks_zsa.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, 2.5, 4.45, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 150,
+		},
+		-- Schuten
+		{
+			node = {
+				animations = { },
+				children = {					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schute_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, 2.35, 6.4, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schute_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, 2.65, 6.4, 1, },
+					},					
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 100,
+		},
+		-- optiken aus
+		{
+			node = {
+				animations = { },
+				children = {					
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46, 2.35, 6.4, 1, },
+					},
+					{						
+						materials = { "ks_signale/optiken/ks_optik_off.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.46, 2.65, 6.4, 1, },
+					},					
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 200,
+		},
+		{
+			node = {
+				animations = { },
+				children = {
+					{
+						animations = {
+							green = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_back_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+							red = {
+								params = {
+									id = "kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_yellow.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.39, 2.35, 6.4, 1, },
+					},
+					{
+						animations = {
+							idle_green = {
+								params = {
+									id = "kaleut_ks_signale_1/idle_ks_optik.ani",
+								},
+								type = "FILE_REF",
+							},
+						},
+						materials = { "ks_signale/optiken/ks_optik_green.mtl", },
+						mesh = "ks_signale/optiken/ks_optik_gr.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.39, 2.65, 6.4, 1, },
+					},						
+					-- zza optik mitte
+					{						
+						animations = {
+							idle_green = {
+								params = {
+									id = "kaleut_ks_signale_1/idle_ks_zsa.ani",
+								},
+								type = "FILE_REF",
+							},	
+						},
+						materials = { "ks_signale/zusatzsignal/ks_zs3v_10.mtl", },
+						mesh = "ks_signale/optiken/ks_zsa_display.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.01, 2.5, 5.5, 1, },
+					},
+					-- zza optik unten
+					{
+						animations = {
+							idle_green = {
+								params = {
+									id = "kaleut_ks_signale_1/idle_ks_zsa.ani",
+								},
+								type = "FILE_REF",
+							},							
+						},
+						materials = { "ks_signale/zusatzsignal/ks_zs2v_f.mtl", },
+						mesh = "ks_signale/optiken/ks_zsa_display.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.01, 2.5, 4.7, 1, },
+					},	
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 0,
+			visibleTo = 200,
+		},
+		{
+			node = {
+				animations = { },
+				children = {									
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/schirme/ks_schirm_klein_lod0.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, 2.5, 6.4, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/koerbe/ks_korb_mitte_auslegermast_kurz.msh",						
+						transf = { 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, -0.23, 3.15, 4.08, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_masten.mtl", },
+						mesh = "ks_signale/masten/ks_aufsetzmast_lang.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 4.08, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_masten.mtl", },
+						mesh = "ks_signale/masten/ks_auslegermast_hoch_kurz.msh",						
+						transf = { 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 3.075, 0, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
+						mesh = "ks_signale/misc/ks_zsa.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, 2.5, 5.25, 1, },
+					},					
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
+						mesh = "ks_signale/misc/ks_zsa.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, 2.5, 4.45, 1, },
+					},
+				},
+				name = "RootNode",
+				transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, trackHeightOffset, 1, },
+			},
+			static = false,
+			visibleFrom = 150,
+			visibleTo = 300,
+		},
+	},
+	metadata = {
+		availability = {
+			yearFrom = 0001,
+			yearTo = 0002,
+		},
+		cost = {
+			price = 2500,
+		},
+		description = {
+			name = _("KS Vsig AMHK Ks2/Ks1 zs3v: 100 Zs2v: 'F' Fernbahn links"),
+		},
+		signal = {
+			type = "WAYPOINT",
+		},
+		category = {
+			categories = { "KS-Signal VSig AMHK", },
+		},
+		ksSignal = {
+			side = "left",
+			signalPole = "amhk",
+			zsa = true,
+			zs3Zs3v = true,
+			zs2Zs2v = true,
+			vkb = false,
+			wied = false,
+			Kl = false,
+			Sh1 = false,
+			Zs1 = false,
+			Zs7 = false,
+			Zs6 = false,
+			Zp9 = false,
+		},
+	},
+	version = 1,
+}
+end
