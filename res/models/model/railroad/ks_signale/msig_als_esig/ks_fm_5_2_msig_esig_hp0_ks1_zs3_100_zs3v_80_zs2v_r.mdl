@@ -366,7 +366,7 @@ return {
 			price = 2500,
 		},
 		description = {
-			name = _("KS Msig FM 5,2m Hp0/Ks2 Zs3: 100 Zs3v: 80 Zs2v: 'R' Rechts"),
+			name = _("KS Msig FM 5,2m Hp0/Ks1 Zs3: 100 Zs3v: 80 Zs2v: 'R' Rechts"),
 		},
 		category = {
 			categories = { "KS-Signal Msig FM", },
