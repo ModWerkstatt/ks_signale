@@ -1,0 +1,244 @@
+function data()
+return { 
+		boundingInfo = { 
+			bbMax = { 3, 0, 9.5, },
+			bbMin = { 0.5, -3, 0, },
+		},
+		collider = { 
+			params = { 
+				halfExtents = { 1.25, 1.5, 4.75, },
+			},
+			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.75, -1.5, 4.75, 1, },
+			type = "BOX",
+		},
+		lods = {
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schute_gr.msh",
+							name = "ks_schute_gr_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.5, 6.1, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schute_gr.msh",
+							name = "ks_schute_gr_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.5, 5.85, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schute_kl.msh",
+							name = "ks_schute_kl_3",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.35, 6.3, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schute_kl.msh",
+							name = "ks_schute_kl_4",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.5, 5.625, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schute_kl.msh",
+							name = "ks_schute_kl_5",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.3, 5.45, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.25, 0, 1.67, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 100,
+			},
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/misc/msh/ks_pzb_1000.msh",
+							name = "ks_pzb_1000_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.95, 0.55, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/halter/msh/ks_halter_schirm_am.msh",
+							name = "ks_halter_schirm_am_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.53, -2.5, 7.21, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schirm_gross_lod0.msh",
+							name = "ks_schirm_gross_lod0_3",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.5, 7.93, 1, },
+						},
+						{ 
+							materials = { "/signalbruecken/mat/signalbruecke_2.mtl", "/signalbruecken/mat/signalbruecke_2_gitter.mtl", },
+							mesh = "/signalbruecken/modern/msh/signalbruecke_korb_1_lod0.msh",
+							name = "signalbruecke_korb_neu",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.05, -2.5, 8.3, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schilder/msh/ks_mastschild_hauptsignal_schmal.msh",
+							name = "ks_mastschild_hauptsignal_schmal_5",
+							transf = { 1, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 1.2, 0, -0.35, -2.1, 7.2, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.25, 0, -0.53, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 150,
+			},
+			{ 
+				node = { 
+					children = {
+						{ 
+							animations = { 
+								green = { 
+									params = { 
+										id = "/kaleut_ks_signale_1/switch_back_ks_optik.ani",
+									},
+									type = "FILE_REF",
+								},
+								red = { 
+									params = { 
+										id = "/kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+									},
+									type = "FILE_REF",
+								},
+							},
+							materials = { "/ks_signale/optiken/mat/ks_optik_red.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_gr.msh",
+							name = "ks_optik_gr_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.57, -2.5, 6.1, 1, },
+						},
+						{ 
+							animations = { 
+								green = { 
+									params = { 
+										id = "/kaleut_ks_signale_1/switch_forward_ks_optik.ani",
+									},
+									type = "FILE_REF",
+								},
+								red = { 
+									params = { 
+										id = "/kaleut_ks_signale_1/switch_back_ks_optik.ani",
+									},
+									type = "FILE_REF",
+								},
+							},
+							materials = { "/ks_signale/optiken/mat/ks_optik_white.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_kl.msh",
+							name = "ks_optik_kl_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.57, -2.35, 6.3, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.25, 0, 1.67, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 200,
+			},
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "/ks_signale/optiken/mat/ks_optik_off.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_gr.msh",
+							name = "ks_optik_gr_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.63, -2.5, 6.1, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/optiken/mat/ks_optik_off.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_gr.msh",
+							name = "ks_optik_gr_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.63, -2.5, 5.85, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/optiken/mat/ks_optik_off.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_kl.msh",
+							name = "ks_optik_kl_3",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.63, -2.35, 6.3, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/optiken/mat/ks_optik_off.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_kl.msh",
+							name = "ks_optik_kl_4",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.63, -2.5, 5.625, 1, },
+						},
+						{ 
+							materials = { "/ks_signale/optiken/mat/ks_optik_off.mtl", },
+							mesh = "/ks_signale/optiken/msh/ks_optik_kl.msh",
+							name = "ks_optik_kl_5",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.63, -2.3, 5.45, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.25, 0, 1.67, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 200,
+			},
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc.mtl", },
+							mesh = "/ks_signale/schirme/msh/ks_schirm_gross_lod0.msh",
+							name = "ks_schirm_gross_lod0_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.62, -2.5, 7.93, 1, },
+						},
+						{ 
+							materials = { "/signalbruecken/mat/signalbruecke_2.mtl", "/signalbruecken/mat/signalbruecke_2_gitter.mtl", },
+							mesh = "/signalbruecken/modern/msh/signalbruecke_korb_1_lod0.msh",
+							name = "signalbruecke_korb_neu",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.05, -2.5, 8.3, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.25, 0, -0.53, 1, },
+				},
+				visibleFrom = 150,
+				visibleTo = 300,
+			},
+		},
+		metadata = { 
+			availability = { 
+				yearFrom = 1993,
+				yearTo = 0,
+			},
+			category = { 
+				categories = { "KS-Signal ASig SBR", },
+			},
+			cost = { 
+				price = 2500,
+			},
+			description = { 
+				name = _("KS Asig SBR Hp0/Kennlicht"),
+			},
+			ksSignal = { 
+				Kl = true,
+				Sh1 = false,
+				Zp9 = false,
+				Zs1 = false,
+				Zs6 = false,
+				Zs7 = false,
+				dunk = false,
+				side = "right",
+				signalPole = "sbr",
+				vkb = false,
+				wied = false,
+				zs2Zs2v = false,
+				zs3Zs3v = false,
+				zsa = false,
+			},
+			signal = { 
+				type = "PATH_SIGNAL",
+			},
+		},
+		version = 2,
+	}
+end

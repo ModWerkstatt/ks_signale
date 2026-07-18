@@ -1,0 +1,43 @@
+function data()
+return { 
+		boundingInfo = { 
+			bbMax = { 0.6, 0.29, 8.9, },
+			bbMin = { -0.1, -0.29, 8.3, },
+		},
+		collider = { 
+			params = { 
+				halfExtents = { 0.35, 0.29, 0.3, },
+			},
+			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.25, 0, 8.6, 1, },
+			type = "BOX",
+		},
+		lods = {
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "/ks_signale/misc/mat/ks_signal_misc_2.mtl", },
+							mesh = "/ks_signale/halter/msh/ks_zsa_halter_sbr_links.msh",
+							name = "ks_zsa_halter_sbr_links_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 300,
+			},
+		},
+		metadata = { 
+			availability = { 
+				yearFrom = 1993,
+				yearTo = 0,
+			},
+			cost = { 
+				price = -1,
+			},
+		},
+		version = 2,
+	}
+end
