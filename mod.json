@@ -1,5 +1,19 @@
 {
-    "dependencies": null,
+    "dependencies": [
+        {
+            "mod": {
+                "modId": "mw_signalkomponenten",
+                "revisionMin": 1,
+                "revisionMax": -1
+            },
+            "modInfo": {
+                "displayName": "ModWerkstatt Signal Components",
+                 "url": "https://modwerkstatt.com/downloads/tpf3/signalkomponenten"
+            },
+            "loadBefore": true,
+            "optional": false
+        }
+    ],
     "incompatibilities": null,
     "modId": "mw_ks_signale",
     "params": null,
