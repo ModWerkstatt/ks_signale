@@ -189,7 +189,19 @@
 		"17m": "17 m",
 		"18m": "18 m",
 		"19m": "19 m",
-		"20m": "20 m"
+		"20m": "20 m",
+        "tooltip_zusatz_oben": "Zusatzanzeiger oben",
+        "tooltip_mast": "Mastart auswählen",
+        "tooltip_optik": "Signalart auswählen",
+        "tooltip_licht": "Licht auswählen",
+        "tooltip_wiederholer": "Vorsignalwiederholder ja oder nein",
+        "tooltip_vkb": "Verkürzter Bremswegabstand ja oder nein",
+        "tooltip_zusatz_unten1": "Zusatzanzeiger unten",
+        "tooltip_zusatz_unten2": "Zusatzanzeiger ganz unten (nur bei bestimmten Masttypen)",
+        "tooltip_trackpos": "Position am Gleis auswählen",
+        "tooltip_waypoint": "Wegpunkt ja oder nein",
+        "tooltip_oneway": "Einbahnsignal ja oder nein (nur wenn nicht Wegpunkt)",
+        "tooltip_offset": "Verschub entlang des Gleises"
 
 	}
 }
