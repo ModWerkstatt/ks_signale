@@ -1,0 +1,22 @@
+{
+    "name": "Ks Signals",
+    "summary": "This mod includes 2 different paint jobs.",
+    "description": "The compact signals are a further development of the H/V signals. They have a new type of signal screen, which was adopted for the later Ks signals. The signals were installed on lines with ESTWs from 1984. There are various designs of masts and for attachment to signal bridges, of which the most common are included in this mod.",
+    "localization" : {
+        "de": {
+            "name": "Ks-signale",
+            "summary": "In diesem Mod sind 3 verschiedene Lackierungen enthalten.",
+            "description": "Die Kompaktsignale sind eine Weiterentwicklung der H/V-Signale. Sie besitzen eine neuartigen Signalschirm, der für die späteren Ks-Signale übernommen wurde. Die Signale wurde ab 1984 auf Strecken mit ESTWs aufgestellt. Es gibt verschiedene Bauformen von Masten und zur Befestigung an Signalbrücken, wovon die gebräuchlichsten in diesem Mod enthalten sind."
+        }
+    },
+    "authors": [
+        {
+            "name": "Modwerkstatt",
+            "role": "CREATOR"
+        }
+    ],
+    "tags": [
+        "Signal"
+    ],
+    "url": "https://modwerkstatt.com/downloads/tpf3/ks-signale"
+}
