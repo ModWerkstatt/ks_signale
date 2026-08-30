@@ -1,0 +1,73 @@
+function data()
+return {
+		boundingInfo = {
+			bbMax = { 0.8, 0, 7.5, },
+			bbMin = { -1.1, -4, -1, },
+		},
+		collider = {
+			params = {
+				halfExtents = { 0.95, 2, 4.25, },
+			},
+			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.15, -2, 2.72, 1, },
+			type = "BOX",
+		},
+		lods = {
+			{
+				node = {
+					children = {
+						{
+							animations = {
+								green = {
+									params = {
+										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/on.ani",
+									},
+									type = "FILE_REF",
+								},
+								red = {
+									params = {
+										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/off.ani",
+									},
+									type = "FILE_REF",
+								},
+							},
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_green.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_gr_lod0.msh",
+							name = "licht_gruen",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0.45, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 200,
+			},
+        },
+		metadata = {
+			lightSourceList = {
+				lights = {
+                    {
+						angleMax = 10,
+						angleMin = 5,
+						color = { 0, 0.47, 0, },
+						fadeOutStart = 700,
+						fromTime = 0,
+						invertMask = true,
+						lightId = "",
+						mask = 0,
+						meshId = "licht_gruen",
+						mode = "LIGHT",
+						radius = 5,
+						strength = 3,
+						toTime = 24,
+						transf = { -0.985, 0, -0.174, 0, 0, -1, 0, 0, -0.174, 0, 0.985, 0, 0, 0, 0, 1, },
+						type = "SPOT",
+						visibleFrom = -1,
+						visibleTo = 800,
+					},
+				},
+			},
+		},
+		version = 2,
+	}
+end
