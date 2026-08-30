@@ -1,0 +1,113 @@
+function data()
+return {
+		boundingInfo = {
+			bbMax = { 0.8, 0, 7.5, },
+			bbMin = { -1.1, -4, -1, },
+		},
+		collider = {
+			params = {
+				halfExtents = { 0.95, 2, 4.25, },
+			},
+			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.15, -2, 2.72, 1, },
+			type = "BOX",
+		},
+		lods = {
+			{
+				node = {
+					children = {
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_gr_lod0.msh",
+							name = "ks_schute_gr_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0.65, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_gr_lod0.msh",
+							name = "ks_schute_gr_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0.45, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_gr_lod0.msh",
+							name = "ks_schute_gr_3",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.15, 0.45, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_kl_lod0.msh",
+							name = "ks_schute_kl_4",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0.85, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_kl_lod0.msh",
+							name = "ks_schute_kl_5",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.1, 0.175, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_kl_lod0.msh",
+							name = "ks_schute_kl_6",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.1, 0.175, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_kl_lod0.msh",
+							name = "ks_schute_kl_7",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_gr_lod0.msh",
+							name = "ks_optik_gr_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0.65, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_gr_lod0.msh",
+							name = "ks_optik_gr_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.15, 0.45, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_gr_lod0.msh",
+							name = "ks_optik_gr_3",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0.45, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_kl_lod0.msh",
+							name = "ks_optik_kl_4",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0.85, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_kl_lod0.msh",
+							name = "ks_optik_kl_5",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.1, 0.175, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_kl_lod0.msh",
+							name = "ks_optik_kl_6",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.1, 0.175, 1, },
+						},
+						{
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_kl_lod0.msh",
+							name = "ks_optik_kl_7",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 150,
+			},
+		},
+		metadata = { },
+		version = 2,
+	}
+end
