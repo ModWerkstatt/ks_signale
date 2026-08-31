@@ -3,45 +3,59 @@ function data()
     return {
 	    updateFn = function(captureParams, params)
 
---[[           local isLeft = params.mw_trackpos == 1
+            local isLeft = params.mw_trackpos == 1
             local sideSuffix = isLeft and "left" or "right"
             local offset_x = params.mw_offset_x and params.mw_offset_x or 0
             local offset_y = isLeft and 2.85 or -2.15
             local offset_z = 0
-            local optikOffset_y
-            local optikOffset_z
+            local optikOffset_y = 0
+            local optikOffset_z = 0
             local mastSelected = params.mw_mast
             local optikSelected = params.mw_optik
             local lichtSelected = params.mw_light
 
-            local offset = (params and params.mw_offset) and (params.mw_offset * -1) or 0
+            local offset = -(offset_x - 1)
 
-            -- signal type
+           -- signal type
             local signalType = params.mw_waypoint == 1 and "WAYPOINT" or "PATH_SIGNAL"
 
             -- models
             local pzbMagnet = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ks_pzb_1000.mdl"
-            local hvKompaktMast = {
-		        [1] = "amhl_hoch_" .. sideSuffix .. "_mast.mdl",
-		        [2] = "amhl_" .. sideSuffix .. "_mast.mdl",
-		        [3] = "fm_5_2_mast.mdl",
-		        [4] = "fm_5_8_mast.mdl",
-		        [5] = "fm_6_4_mast.mdl",
-	        }
-            local hvKompaktOptik = {
-                [1] = "optiken_asig.mdl",
-                [2] = "optiken_esig.mdl",
-                [3] = "optiken_bsig.mdl",
-                [4] = "optiken_vsig.mdl",
+
+            local ksOptik = {
+                [1] = "asig",
+                [2] = "bksig",
+                [3] = "msig",
+                [4] = "msig_asig",
+                [5] = "msig_esig",
+                [6] = "vsig",
             }
-            local hvKompaktLights = {
+            local optikType = ksOptik[optikSelected and optikSelected or 1]
+            local mastOptikType
+            if optikType ~= "msig" and optikType ~= "vsig" then
+                mastOptikType = "msig"
+            elseif optikType == "vsig" then
+                mastOptikType = "vsig"
+            else mastOptikType = optikType
+            end
+
+            local ksMast = {
+		        [1] = "mast_amhk_" .. sideSuffix .. ".mdl",
+		        [2] = "mast_amnk_" .. sideSuffix .. ".mdl",
+		        [3] = "mast_amhl_" .. sideSuffix .. ".mdl",
+		        [4] = "mast_fm_4_6.mdl",
+		        [5] = "mast_amshk_" .. mastOptikType .. "_" .. sideSuffix .. ".mdl", -- msig oder vsig
+		        [6] = "mast_fm_5_8.mdl",
+		        [7] = "mast_fm_5_2_" .. mastOptikType .. ".mdl", -- msig oder vsig
+	        }
+  --[[            local hvKompaktLights = {
                 [1] = "hp0.mdl",
                 [2] = "hp1.mdl",
                 [3] = "hp2.mdl",
                 [4] = "sh1.mdl",
-            }
-            local mast = hvKompaktMast[mastSelected and mastSelected or 1]
-            local optik = hvKompaktOptik[optikSelected and optikSelected or 1]
+            } ]]
+            local mast = ksMast[mastSelected and mastSelected or 1]
+--[[            local optik = ksOptik[optikSelected and optikSelected or 1]
             local greenLight = hvKompaktLights[lichtSelected and lichtSelected or 2]
             local redLight = "hp0.mdl"
 
@@ -70,32 +84,36 @@ function data()
                 redLight = "vr0.mdl"
             end
 
-
+]]
             if mastSelected == 1 then
-                optikOffset_y = 2
-                optikOffset_z = 7.0
+                optikOffset_z = 5.4
             elseif mastSelected == 2 then
-                optikOffset_y = 2
-                optikOffset_z = 5.8
+                optikOffset_z = 6.1
             elseif mastSelected == 3 then
-                optikOffset_z = 5.1
+                optikOffset_z = 5.4
             elseif mastSelected == 4 then
-                optikOffset_z = 5.7
+                optikOffset_z = 6.1
             elseif mastSelected == 5 then
-                optikOffset_z = 6.3
+                optikOffset_y = 0.35
+                optikOffset_z = 6.0
+            elseif mastSelected == 6 then
+                optikOffset_y = 0.35
+                optikOffset_z = 6.0
+            elseif mastSelected == 7 then
+                optikOffset_z = 5.4
             end
             optikOffset_y = -0.36+offset_y
 
 
 		    -- build it
 		    local edgeModels = {}
-            table.insert(edgeModels, {
+  --[[           table.insert(edgeModels, {
                 edgeOffset = offset,
                 model = {
                     id = resolve(redLight),
                     transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
                 }
-            })
+            })  ]]
             table.insert(edgeModels, {
                 edgeOffset = offset,
                 model = {
@@ -113,11 +131,11 @@ function data()
             table.insert(edgeModels, {
                 edgeOffset = offset,
                 model = {
-                    id = resolve(optik),
+                    id = resolve("optiken_" .. optikType .. ".mdl"),
                     transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
                 }
             })
-            if optikSelected ~= 1 or lichtSelected  ~= 1 then -- if Hp0 is selected, no extra light
+  --[[            if optikSelected ~= 1 or lichtSelected  ~= 1 then -- if Hp0 is selected, no extra light
                 table.insert(edgeModels, {
                     edgeOffset = offset,
                     model = {
@@ -126,7 +144,7 @@ function data()
                     }
                 })
             end
-
+]]
             -- result
             local result = {}
 		    result.signal = {
@@ -136,22 +154,7 @@ function data()
             result.edgeModels = edgeModels
 		    result.cost = 20000
 		    result.maintenanceCost = 5000
-debugPrint(result)]]
-            local edgeModels = {}
-            table.insert(edgeModels, {
-                model = {
-                    id = resolve("mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ks_pzb_1000.mdl"),
-                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1.05, 0.02, 1 }
-                }
-            })
-            local result = {}
-		    result.signal = {
-			    soundevent = "",
-			    type = "PATH_SIGNAL",
-		    }
-            result.edgeModels = edgeModels
-		    result.cost = 20000
-		    result.maintenanceCost = 5000
+debugPrint(result)
 		    return result
 	    end
     }
