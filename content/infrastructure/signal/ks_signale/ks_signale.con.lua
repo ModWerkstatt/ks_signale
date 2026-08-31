@@ -42,14 +42,6 @@ function data()
 	      },
 	    order = 1,
         params = {
-            -- Zusatzanzeiger oben
-            -- Mast
-            -- Optik
-            -- Licht (Kennlicht)
-            -- Wiederholer (nur bei Vsig)
-            -- VKB
-            -- Zusatzanzeiger unten
-            -- Zusatzanzeiger unten 2
 		    {
 			    key = "mw_zusatz_oben",
 			    name = _("ZusatzObenType"),
@@ -57,22 +49,25 @@ function data()
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_oben"),
                 uiType = "ComboBox",
+                postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_mast",
 			    name = _("MastType"),
-			    values = { _("Amhk"), _("Amnk"), _("Amhl"), _("Fm 4,6"), _("Amshk"), _("Fm 5,8"), _("Fm 5,2"), },
+			    values = { _("Amhk"), _("Amshk"), _("Amnk"), _("Amhl"), _("Fm 5,8"), _("Fm 5,2"), _("Fm 4,6"),  },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_mast"),
                 uiType = "ComboBox",
+                postConstructionModifiable = true,
 		    },
             {
 			    key = "mw_optik",
 			    name = _("OptikType"),
-			    values = { _("Asig"), _("Esig"), _("Bksig"), _("Msig"), _("MAsig"), _("MEsig"), _("Vsig"), },
+			    values = { _("Asig"), _("Bksig"), _("Msig"), _("MAsig"), _("MEsig"), _("Vsig"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_optik"),
                 uiType = "ComboBox",
+                postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_licht",
@@ -81,6 +76,7 @@ function data()
 			    defaultIndex = 2,
 			    tooltip = _("tooltip_licht"),
                 uiType = "Button",
+                postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_wiederholer",
@@ -89,6 +85,7 @@ function data()
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_wiederholer"),
                 uiType = "CheckBox",
+                postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_vkb",
@@ -97,6 +94,7 @@ function data()
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_vkb"),
                 uiType = "CheckBox",
+                postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_zusatz_unten1",
@@ -105,6 +103,7 @@ function data()
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_unten1"),
                 uiType = "ComboBox",
+                postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_zusatz_unten2",
@@ -113,6 +112,7 @@ function data()
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_unten2"),
                 uiType = "ComboBox",
+                postConstructionModifiable = true,
                 checkEnabledScript = {
                     fileName = "script/zusatz_unten2_construction.script@checkEnabledFn",
                     params = {
@@ -128,6 +128,7 @@ function data()
                 tooltip = _("tooltip_trackpos"),
 				defaultIndex = 2,
                 uiType = "Button",
+                postConstructionModifiable = true,
 			},
 			{
 				key = "mw_waypoint",
@@ -153,7 +154,7 @@ function data()
                 },
 			},
             {
-				key = "mw_offset",
+				key = "mw_offset_x",
 				name = _("Offset"),
 				uiType = "Slider",
                 values = { _("0m"), _("1m"), _("2m"), _("3m"), _("4m"), _("5m"), _("6m"), _("7m"), _("8m"), _("9m"), _("10m"), _("11m"), _("12m"), _("13m"), _("14m"), _("15m"), _("16m"), _("17m"), _("18m"), _("19m"), _("20m"), },
