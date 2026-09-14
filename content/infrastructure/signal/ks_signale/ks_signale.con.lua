@@ -15,7 +15,7 @@ function data()
         menuCategory = {
             categories = {
                 {
-                    category = "rail_tools",
+                    category = "rail_signals",
                     order = 720,
                 },
             },
