@@ -3,21 +3,24 @@ function data()
     return {
 	    updateFn = function(captureParams, params)
 
-            local isLeft = params.mw_trackpos == 1
-            local sideSuffix = isLeft and "left" or "right"
-            local offset_x = params.mw_offset_x and params.mw_offset_x or 0
-            local offset_y = isLeft and 2.85 or -2.15
-            local offset_z = 0
-            local optikOffset_y = 0
-            local optikOffset_z = 0
-            local mastSelected = params.mw_mast
-            local optikSelected = params.mw_optik
-            local lichtSelected = params.mw_light
+        local isLeft = params.mw_ks_trackpos == 1
+        local sideSuffix = isLeft and "left" or "right"
+        local offset_x = params.mw_ks_offset_x and params.mw_ks_offset_x or 0
+        local offset_y = isLeft and 2.85 or -2.15
+        local offset_z = 0
+        local optikOffset_y = 0
+        local optikOffset_z = 0
+        local mastSelected = params.mw_ks_mast
+        local optikSelected = params.mw_ks_optik
+        local lichtSelected = params.mw_ks_light
 
-            local offset = -(offset_x - 1)
+        local offset = -(offset_x - 1)
 
-           -- signal type
-            local signalType = params.mw_waypoint == 1 and "WAYPOINT" or "PATH_SIGNAL"
+       -- signal type
+        local signalType = params.mw_ks_waypoint == 1 and "WAYPOINT" or "PATH_SIGNAL"
+        if params.mw_ks_waypoint == 2 and params.mw_ks_oneway == 1 then
+            signalType = "ONE_WAY_PATH_SIGNAL"
+        end
 
             -- models
             local pzbMagnet = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ks_pzb_1000.mdl"

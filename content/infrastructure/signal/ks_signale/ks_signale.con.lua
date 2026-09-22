@@ -43,7 +43,7 @@ function data()
 	    order = 1,
         params = {
 		    {
-			    key = "mw_zusatz_oben",
+			    key = "mw_ks_zusatz_oben",
 			    name = _("ZusatzObenType"),
 			    values = { _("ohne"), _("aus"), _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_L"), _("Zs2_M"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
 			    defaultIndex = 1,
@@ -52,7 +52,7 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_mast",
+			    key = "mw_ks_ast",
 			    name = _("MastType"),
 			    values = { _("Amhk"), _("Amshk"), _("Amnk"), _("Amhl"), _("Fm 5,8"), _("Fm 5,2"), _("Fm 4,6"),  },
 			    defaultIndex = 1,
@@ -61,7 +61,7 @@ function data()
                 postConstructionModifiable = true,
 		    },
             {
-			    key = "mw_optik",
+			    key = "mw_ks_optik",
 			    name = _("OptikType"),
 			    values = { _("Asig"), _("Bksig"), _("Msig"), _("MAsig"), _("MEsig"), _("Vsig"), },
 			    defaultIndex = 1,
@@ -70,7 +70,7 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_licht",
+			    key = "mw_ks_licht",
 			    name = _("LichtType"),
 			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Sh1"), _("Kennlicht"), },
 			    defaultIndex = 2,
@@ -79,7 +79,7 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_wiederholer",
+			    key = "mw_ks_wiederholer",
 			    name = _("WiederholerType"),
 			    values = { "1", "2", },
 			    defaultIndex = 1,
@@ -88,7 +88,7 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_vkb",
+			    key = "mw_ks_vkb",
 			    name = _("VKBType"),
 			    values = { "1", "2", },
 			    defaultIndex = 1,
@@ -97,7 +97,7 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_zusatz_unten1",
+			    key = "mw_ks_zusatz_unten1",
 			    name = _("ZusatzUnten1Type"),
 			    values = { _("ohne"), _("aus"),  _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_L"), _("Zs2_M"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), _("Zs13"), },
 			    defaultIndex = 1,
@@ -106,23 +106,23 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_zusatz_unten2",
+			    key = "mw_ks_zusatz_unten2",
 			    name = _("ZusatzUnten2Type"),
 			    values = { _("ohne"), _("aus"),  _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_L"), _("Zs2_M"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_unten2"),
                 uiType = "ComboBox",
                 postConstructionModifiable = true,
-                checkEnabledScript = {
+--[[                checkEnabledScript = {
                     fileName = "script/zusatz_unten2_construction.script@checkEnabledFn",
                     params = {
-                          key = "mw_mast",
+                          key = "mw_ks_mast",
                           threshold = 5,
                     },
-                },
+                },]]
 		    },
 			{
-				key = "mw_trackpos",
+				key = "mw_ks_trackpos",
 				name = _("TrackPos"),
 				values = { _("left"), _("right") },
                 tooltip = _("tooltip_trackpos"),
@@ -131,7 +131,7 @@ function data()
                 postConstructionModifiable = true,
 			},
 			{
-				key = "mw_waypoint",
+				key = "mw_ks_waypoint",
 				name = _("Waypoint"),
 				values = { _("Yes"), _("No") },
 				defaultIndex = 2,
@@ -139,7 +139,7 @@ function data()
                 postConstructionModifiable = true,
 			},
 			{
-				key = "mw_oneway",
+				key = "mw_ks_oneway",
 				name = _("OneWay"),
 				values = { _("Yes"), _("No") },
 				defaultIndex = 2,
@@ -148,13 +148,13 @@ function data()
                 checkEnabledScript = {
                     fileName = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/script/oneway_construction.script@checkEnabledFn",
                     params = {
-                          key = "mw_waypoint",
+                          key = "mw_ks_waypoint",
                           threshold = 1,
                     },
                 },
 			},
             {
-				key = "mw_offset_x",
+				key = "mw_ks_offset_x",
 				name = _("Offset"),
 				uiType = "Slider",
                 values = { _("0m"), _("1m"), _("2m"), _("3m"), _("4m"), _("5m"), _("6m"), _("7m"), _("8m"), _("9m"), _("10m"), _("11m"), _("12m"), _("13m"), _("14m"), _("15m"), _("16m"), _("17m"), _("18m"), _("19m"), _("20m"), },
