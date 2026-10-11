@@ -14,7 +14,15 @@
             "optional": false
         }
     ],
-    "incompatibilities": null,
+    "incompatibilities": [
+        {
+            "mod": {
+                "modId": "signal_distance_1",
+                "revisionMin": 1,
+                "revisionMax": -1
+            }
+        }
+    ],
     "modId": "mw_ks_signale",
     "params": null,
     "postRunScript": {
