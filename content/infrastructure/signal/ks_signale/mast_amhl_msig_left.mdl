@@ -1,8 +1,8 @@
 function data()
 return { 
 		boundingInfo = { 
-			bbMax = { 0.8, 0, 7.5, },
-			bbMin = { -1.1, -4, -1, },
+			bbMax = { 0.747, 1.3, 7.18, },
+			bbMin = { -0.77, -0.327, -0.8, },
 		},
 		collider = { 
 			params = { 
@@ -136,6 +136,10 @@ return {
 			},
 		},
 		metadata = { 
+			extent = { 
+				bbMax = { 0.747, 1.3, 7.18, },
+				bbMin = { -0.77, -0.327, -0.8, },
+			},
 		},
 		version = 2,
 	}

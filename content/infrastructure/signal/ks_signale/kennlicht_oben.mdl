@@ -1,30 +1,30 @@
 function data()
-return {
-		boundingInfo = {
-			bbMax = { 0.8, 0, 7.5, },
-			bbMin = { -1.1, -4, -1, },
+return { 
+		boundingInfo = { 
+			bbMax = { 0, 0.844593, 0.888423, },
+			bbMin = { -4, -0.544593, -0.519257, },
 		},
-		collider = {
-			params = {
+		collider = { 
+			params = { 
 				halfExtents = { 0.95, 2, 4.25, },
 			},
 			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.15, -2, 2.72, 1, },
 			type = "BOX",
 		},
 		lods = {
-			{
-				node = {
+			{ 
+				node = { 
 					children = {
-						{
-							animations = {
-								green = {
-									params = {
+						{ 
+							animations = { 
+								green = { 
+									params = { 
 										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/on.ani",
 									},
 									type = "FILE_REF",
 								},
-								red = {
-									params = {
+								red = { 
+									params = { 
 										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/off.ani",
 									},
 									type = "FILE_REF",
@@ -43,10 +43,14 @@ return {
 				visibleTo = 200,
 			},
 		},
-		metadata = {
-			lightSourceList = {
+		metadata = { 
+			extent = { 
+				bbMax = { -0.00462133, 0.188423, 0.888423, },
+				bbMin = { -0.0100398, 0.111577, 0.811577, },
+			},
+			lightSourceList = { 
 				lights = {
-					{
+					{ 
 						angleMax = 10,
 						angleMin = 5,
 						color = { 0.9, 0.9, 0.9, },
