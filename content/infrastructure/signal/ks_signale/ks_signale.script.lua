@@ -19,6 +19,7 @@ function data()
         local mastVSelected = params.mw_ks_vmast and params.mw_ks_vmast or false
         local optikSelected = params.mw_ks_optik
         local lichtSelected = params.mw_ks_asig_licht or params.mw_ks_bsig_licht or params.mw_ks_masig_licht or params.mw_ks_masig_asig_licht or params.mw_ks_vlicht
+        local showGreenLight = (optikSelected ~= 1 or lichtSelected ~= 1)
 
         local offset = -(offset_x - 1)
 
@@ -139,12 +140,16 @@ function data()
                 greenLight = "sh1"
             elseif lichtSelected == 4 then -- Kennlicht
                 greenLight = "kennlicht_oben"
+            elseif lichtSelected == 5 then -- Dunkelschaltung
+                showGreenLight = false
             end
         elseif optikSelected == 2 then -- Bsig
             if lichtSelected == 2 then -- Ks1
                 lichtOffset_y_green = -0.15
                 lichtOffset_z_green = -0.05
                 greenLight = "ks1"
+            elseif lichtSelected == 3 then
+                showGreenLight = false
             end
         elseif optikSelected == 3 or optikSelected == 5 then -- MAsig / MASig Esig
             if lichtSelected == 2 then -- Ks1
@@ -155,6 +160,8 @@ function data()
                 greenLight = "ks2"
             elseif lichtSelected == 5 then -- Kennlicht
                 greenLight = "kennlicht_oben"
+            elseif lichtSelected == 6 then -- Dunkelschaltung
+                showGreenLight = false
             end
         elseif optikSelected == 4 then -- MAsig Asig
             if lichtSelected == 2 then -- Ks1
@@ -167,6 +174,8 @@ function data()
                 greenLight = "sh1"
             elseif lichtSelected == 6 then -- Kennlicht
                 greenLight = "kennlicht_oben"
+            elseif lichtSelected == 7 then -- Dunkelschaltung
+                showGreenLight = false
             end
         elseif optikSelected == 6 then -- Vsig
             redLight = "ks2_vsig.mdl"
@@ -179,8 +188,11 @@ function data()
                 greenLight = "ks2"
             elseif lichtSelected == 4 then -- Kennlicht
                 greenLight = "kennlicht_oben"
+            elseif lichtSelected == 5 then -- Dunkelschaltung
+                showGreenLight = false
             end
         end
+
 
 		-- build it
 		local edgeModels = {}
@@ -212,7 +224,7 @@ function data()
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
          	}
         })
-        if optikSelected ~= 1 or lichtSelected  ~= 1 then -- if Hp0 is selected, no extra light
+        if showGreenLight then -- if Hp0 or Dunkelschaltung is selected, no extra light
          	table.insert(edgeModels, {
             	edgeOffset = offset,
                model = {
@@ -231,7 +243,7 @@ function data()
         result.edgeModels = edgeModels
 		result.cost = 20000
 		result.maintenanceCost = 5000
-
+debugPrint(result)
 		return result
 
 	end

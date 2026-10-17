@@ -85,7 +85,7 @@ function data()
 		    {
 			    key = "mw_ks_asig_licht",
 			    name = _("LichtType"),
-			    values = { _("Hp0"), _("Ks1"), _("Sh1"), _("Kennlicht"), },
+			    values = { _("Hp0"), _("Ks1"), _("Sh1"), _("Kennlicht"), _("dunkel"), },
 			    defaultIndex = 2,
 			    tooltip = _("tooltip_licht"),
                 uiType = "Button",
@@ -101,7 +101,7 @@ function data()
 		    {
 			    key = "mw_ks_bsig_licht",
 			    name = _("LichtType"),
-			    values = { _("Hp0"), _("Ks1"), },
+			    values = { _("Hp0"), _("Ks1"), _("dunkel"), },
 			    defaultIndex = 2,
 			    tooltip = _("tooltip_licht"),
                 uiType = "Button",
@@ -117,7 +117,7 @@ function data()
 		    {
 			    key = "mw_ks_masig_licht",
 			    name = _("LichtType"),
-			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Kennlicht"), },
+			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Kennlicht"), _("dunkel"), },
 			    defaultIndex = 2,
 			    tooltip = _("tooltip_licht"),
                 uiType = "Button",
@@ -133,7 +133,7 @@ function data()
 		    {
 			    key = "mw_ks_masig_asig_licht",
 			    name = _("LichtType"),
-			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Sh1"), _("Kennlicht"), },
+			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Sh1"), _("Kennlicht"), _("dunkel"), },
 			    defaultIndex = 2,
 			    tooltip = _("tooltip_licht"),
                 uiType = "Button",
@@ -149,7 +149,7 @@ function data()
 		    {
 			    key = "mw_ks_vlicht",
 			    name = _("LichtType"),
-			    values = { _("Ks1"), _("Ks1b"), _("Ks2"), _("Kennlicht"), },
+			    values = { _("Ks1"), _("Ks1b"), _("Ks2"), _("Kennlicht"), _("dunkel"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_vlicht"),
                 uiType = "Button",
