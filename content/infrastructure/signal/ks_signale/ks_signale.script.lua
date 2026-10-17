@@ -9,11 +9,16 @@ function data()
         local offset_y = isLeft and 2.85 or -2.15
         local offset_z = 0
         local optikOffset_y = -0.36+offset_y
+        local optikOffset_y_green = 0
         local optikOffset_z = 0
+        local optikOffset_z_green = 0
+        local lichtOffset_y_green = 0
+        local lichtOffset_z_green = 0
         local offset_z_mast = 0
-        local mastSelected = params.mw_ks_mast
+        local mastSelected = params.mw_ks_mast and params.mw_ks_mast or false
+        local mastVSelected = params.mw_ks_vmast and params.mw_ks_vmast or false
         local optikSelected = params.mw_ks_optik
-        local lichtSelected = params.mw_ks_licht
+        local lichtSelected = params.mw_ks_asig_licht or params.mw_ks_bsig_licht or params.mw_ks_masig_licht or params.mw_ks_masig_asig_licht or params.mw_ks_vlicht
 
         local offset = -(offset_x - 1)
 
@@ -43,60 +48,139 @@ function data()
         else mastOptikType = optikType
         end
 
-        local ksMast = {
-		    [1] = "mast_amhk_" .. sideSuffix .. ".mdl",
-		    [2] = "mast_amshk_" .. mastOptikType .. "_" .. sideSuffix .. ".mdl", -- msig oder vsig
-		    [3] = "mast_amnk_" .. sideSuffix .. ".mdl",
-		    [4] = "mast_amhl_" .. sideSuffix .. ".mdl",		      
-		    [5] = "mast_fm_5_8.mdl",
-		    [6] = "mast_fm_5_2_" .. mastOptikType .. ".mdl", -- msig oder vsig
-		    [7] = "mast_fm_4_6.mdl",
-	    }
-        local ksLights = {
-            [1] = "hp0.mdl",
-            [2] = "ks1.mdl",
-            [3] = "ks1b.mdl",
-            [4] = "ks2.mdl",
-            [5] = "sh1.mdl",
-            [6] = "kennlicht_oben.mdl",
-        }
-        local mast = ksMast[mastSelected and mastSelected or 1]
+        local mast
+        if mastVSelected then
+            local ksVMast = {
+                [1] = "mast_amhk_vsig_" .. sideSuffix .. ".mdl",
+                [2] = "mast_amhl_vsig_" .. sideSuffix .. ".mdl",              
+                [3] = "mast_fm_5_2_vsig.mdl",
+                [4] = "mast_fm_4_6_vsig.mdl",
+            }
+            mast = ksVMast[mastVSelected and mastVSelected or 1]
+        else
+            local ksMast = {
+                [1] = "mast_amhk_" .. sideSuffix .. ".mdl",
+                [2] = "mast_amshk_" .. mastOptikType .. "_" .. sideSuffix .. ".mdl",
+                [3] = "mast_amnk_" .. sideSuffix .. ".mdl",
+                [4] = "mast_amhl_" .. sideSuffix .. ".mdl",              
+                [5] = "mast_fm_5_8.mdl",
+                [6] = "mast_fm_5_2_" .. mastOptikType .. ".mdl",
+                [7] = "mast_fm_4_6.mdl",
+            }
+            mast = ksMast[mastSelected and mastSelected or 1]
+        end
         local optik = ksOptik[optikSelected and optikSelected or 1]
-        local greenLight = ksLights[lichtSelected and lichtSelected or 2]
+        local greenLight = "hp0"
         local redLight = "hp0.mdl"
-         
-        if lichtSelected == 1 then
-      	    redLight = "hp0_hp0.mdl"
-      	end
 
-        if mastSelected == 1 then     -- Amhk
-            optikOffset_z = 5.2
-            offset_z_mast = -0.2
-            optikOffset_y = optikOffset_y + 0.35
-        elseif mastSelected == 2 then -- Amshk
-            optikOffset_z = 5.9
-            offset_z_mast = -0.2
-            optikOffset_y = optikOffset_y + 0.35
-        elseif mastSelected == 3 then -- Amnk
-            optikOffset_z = 4.7
-			offset_z_mast = -0.7
-            optikOffset_y = optikOffset_y + 0.35
-        elseif mastSelected == 4 then -- Amhl
-            optikOffset_z = 6.15
-            optikOffset_y = optikOffset_y + 0.35
-        elseif mastSelected == 5 then -- Fm 5,8
-            optikOffset_y = optikOffset_y + 0.35
-            optikOffset_z = 6.0
-        elseif mastSelected == 6 then -- Fm 5,2
-            optikOffset_y = optikOffset_y + 0.35
-            optikOffset_z = 5.5
-			offset_z_mast = -0.6
-        elseif mastSelected == 7 then -- Fm 4,6
-         	optikOffset_z = 4.8
-         	optikOffset_y = optikOffset_y + 0.35
-			offset_z_mast = -0.6
+
+        -- poles and their variants
+        if mastSelected then
+            if mastSelected == 1 then     -- Amhk
+                optikOffset_z = 5.2
+                offset_z_mast = -0.2
+                optikOffset_y = optikOffset_y + 0.35
+            elseif mastSelected == 2 then -- Amshk
+                optikOffset_z = 5.9
+                offset_z_mast = -0.2
+                optikOffset_y = optikOffset_y + 0.35
+            elseif mastSelected == 3 then -- Amnk
+                optikOffset_z = 4.7
+		        offset_z_mast = -0.7
+                optikOffset_y = optikOffset_y + 0.35
+            elseif mastSelected == 4 then -- Amhl
+                optikOffset_z = 6.15
+                optikOffset_y = optikOffset_y + 0.35
+            elseif mastSelected == 5 then -- Fm 5,8
+                optikOffset_y = optikOffset_y + 0.35
+                optikOffset_z = 6.0
+            elseif mastSelected == 6 then -- Fm 5,2
+                optikOffset_y = optikOffset_y + 0.35
+                optikOffset_z = 5.5
+		        offset_z_mast = -0.6
+            elseif mastSelected == 7 then -- Fm 4,6
+             	optikOffset_z = 4.8
+             	optikOffset_y = optikOffset_y + 0.35
+		        offset_z_mast = -0.6
+            end
+        elseif mastVSelected then
+            if mastVSelected == 1 then     -- Amhk
+                optikOffset_z = 5.7
+                offset_z_mast = -0.2
+                optikOffset_y = optikOffset_y + 0.35
+            elseif mastVSelected == 2 then -- Amhl
+                optikOffset_z = 5.35
+                optikOffset_y = optikOffset_y + 0.35
+            elseif mastVSelected == 3 then -- Fm 5,2
+                optikOffset_z = 5.35
+		        offset_z_mast = -0.6
+             	optikOffset_y = optikOffset_y + 0.35
+            elseif mastVSelected == 4 then -- Fm 4,6
+                optikOffset_z = 4.65
+             	optikOffset_y = optikOffset_y + 0.35
+                offset_z_mast = -0.6
+            end
         end
 
+        -- lights and their positions
+        if lichtSelected == 1 then -- Hp0
+      	    redLight = "hp0_hp0.mdl" -- no animation when hp0
+        elseif lichtSelected == 5 then -- Sh1
+            lichtOffset_y_green = 0
+            lichtOffset_z_green = 0
+        end
+        
+        if optikSelected == 1 then -- Asig
+            if lichtSelected == 2 then -- Ks1
+                lichtOffset_y_green = -0.15
+                lichtOffset_z_green = -0.05
+                greenLight = "ks1"
+            elseif lichtSelected == 3 then -- Sh1
+                greenLight = "sh1"
+            elseif lichtSelected == 4 then -- Kennlicht
+                greenLight = "kennlicht_oben"
+            end
+        elseif optikSelected == 2 then -- Bsig
+            if lichtSelected == 2 then -- Ks1
+                lichtOffset_y_green = -0.15
+                lichtOffset_z_green = -0.05
+                greenLight = "ks1"
+            end
+        elseif optikSelected == 3 or optikSelected == 5 then -- MAsig / MASig Esig
+            if lichtSelected == 2 then -- Ks1
+                greenLight = "ks1"
+            elseif lichtSelected == 3 then -- Ks1b
+                greenLight = "ks1b"
+            elseif lichtSelected == 4 then -- Ks2
+                greenLight = "ks2"
+            elseif lichtSelected == 5 then -- Kennlicht
+                greenLight = "kennlicht_oben"
+            end
+        elseif optikSelected == 4 then -- MAsig Asig
+            if lichtSelected == 2 then -- Ks1
+                greenLight = "ks1"
+            elseif lichtSelected == 3 then -- Ks1b
+                greenLight = "ks1b"
+            elseif lichtSelected == 4 then -- Ks2
+                greenLight = "ks2"
+            elseif lichtSelected == 5 then -- Sh1
+                greenLight = "sh1"
+            elseif lichtSelected == 6 then -- Kennlicht
+                greenLight = "kennlicht_oben"
+            end
+        elseif optikSelected == 6 then -- Vsig
+            redLight = "ks2_vsig.mdl"
+            signalType = "WAYPOINT"
+            if lichtSelected == 1 then -- Ks 1
+                greenLight = "ks1"
+            elseif lichtSelected == 2 then -- Ks1b
+                greenLight = "ks1b"
+            elseif lichtSelected == 3 then -- Ks2
+                greenLight = "ks2"
+            elseif lichtSelected == 4 then -- Kennlicht
+                greenLight = "kennlicht_oben"
+            end
+        end
 
 		-- build it
 		local edgeModels = {}
@@ -132,8 +216,8 @@ function data()
          	table.insert(edgeModels, {
             	edgeOffset = offset,
                model = {
-               	id = resolve(greenLight),
-                  transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
+               	id = resolve(greenLight .. ".mdl"),
+                  transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y+lichtOffset_y_green, optikOffset_z+lichtOffset_z_green, 1 }
          		}
          	})
         end
@@ -147,7 +231,7 @@ function data()
         result.edgeModels = edgeModels
 		result.cost = 20000
 		result.maintenanceCost = 5000
-debugPrint(result)
+
 		return result
 
 	end

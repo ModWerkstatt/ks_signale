@@ -41,15 +41,6 @@ function data()
 	    },
 		order = 1,
 		params = {
-		    {
-			    key = "mw_ks_mast",
-			    name = _("MastType"),
-			    values = { _("Amhk"), _("Amshk"), _("Amnk"), _("Amhl"), _("Fm 5,8"), _("Fm 5,2"), _("Fm 4,6"),  },
-			    defaultIndex = 1,
-			    tooltip = _("tooltip_mast"),
-                uiType = "ComboBox",
-                postConstructionModifiable = true,
-		    },
             {
 			    key = "mw_ks_optik",
 			    name = _("OptikType"),
@@ -60,13 +51,116 @@ function data()
                 postConstructionModifiable = true,
 		    },
 		    {
-			    key = "mw_ks_licht",
+			    key = "mw_ks_mast",
+			    name = _("MastType"),
+			    values = { _("Amhk"), _("Amshk"), _("Amnk"), _("Amhl"), _("Fm 5,8"), _("Fm 5,2"), _("Fm 4,6"), },
+			    defaultIndex = 1,
+			    tooltip = _("tooltip_mast"),
+                uiType = "ComboBox",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/hauptsignal_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 6,
+                    },
+                },
+		    },
+		    {
+			    key = "mw_ks_vmast",
+			    name = _("MastVType"),
+			    values = { _("Amhk"), _("Amhl"), _("Fm 5,2"), _("Fm 4,6"), },
+			    defaultIndex = 1,
+			    tooltip = _("tooltip_vmast"),
+                uiType = "ComboBox",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/vorsignal_construction.script@checkEnabledFn",
+            	    params = {
+               	        key = "mw_ks_optik",
+               	        threshold = 6,
+                    },
+                },
+		    },
+		    {
+			    key = "mw_ks_asig_licht",
+			    name = _("LichtType"),
+			    values = { _("Hp0"), _("Ks1"), _("Sh1"), _("Kennlicht"), },
+			    defaultIndex = 2,
+			    tooltip = _("tooltip_licht"),
+                uiType = "Button",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/optik_licht_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 1,
+                    },
+                },
+		    },
+		    {
+			    key = "mw_ks_bsig_licht",
+			    name = _("LichtType"),
+			    values = { _("Hp0"), _("Ks1"), },
+			    defaultIndex = 2,
+			    tooltip = _("tooltip_licht"),
+                uiType = "Button",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/optik_licht_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 2,
+                    },
+                },
+		    },
+		    {
+			    key = "mw_ks_masig_licht",
+			    name = _("LichtType"),
+			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Kennlicht"), },
+			    defaultIndex = 2,
+			    tooltip = _("tooltip_licht"),
+                uiType = "Button",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/optik_licht_2_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 6,
+                    },
+                },
+		    },
+		    {
+			    key = "mw_ks_masig_asig_licht",
 			    name = _("LichtType"),
 			    values = { _("Hp0"), _("Ks1"), _("Ks1b"), _("Ks2"), _("Sh1"), _("Kennlicht"), },
 			    defaultIndex = 2,
 			    tooltip = _("tooltip_licht"),
                 uiType = "Button",
                 postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/optik_licht_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 4,
+                    },
+                },
+		    },
+		    {
+			    key = "mw_ks_vlicht",
+			    name = _("LichtType"),
+			    values = { _("Ks1"), _("Ks1b"), _("Ks2"), _("Kennlicht"), },
+			    defaultIndex = 1,
+			    tooltip = _("tooltip_vlicht"),
+                uiType = "Button",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/optik_licht_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 6,
+                    },
+                },
 		    },
 		    {
 			    key = "mw_ks_wiederholer",
@@ -128,6 +222,7 @@ function data()
 				defaultIndex = 2,
                 uiType = "Button",
                 postConstructionModifiable = true,
+                displayMode = "Horizontal",
                 group = "generalParams",  
 			},
 			{
@@ -137,6 +232,7 @@ function data()
 				defaultIndex = 2,
                 tooltip = _("tooltip_waypoint"),
                 postConstructionModifiable = true,
+                displayMode = "Horizontal",
                 group = "generalParams",  
 			},
 			{
@@ -146,7 +242,8 @@ function data()
 				defaultIndex = 2,
 				tooltip = _("tooltip_oneway"),
                 postConstructionModifiable = true,
-                group = "generalParams",  
+                group = "generalParams",
+                displayMode = "Horizontal",
                 checkEnabledScript = {
             	    fileName = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/script/oneway_construction.script@checkEnabledFn",
                     params = {
@@ -163,6 +260,7 @@ function data()
 				defaultIndex = 9,
 				tooltip = _("tooltip_offset"),
                 postConstructionModifiable = true,
+                displayMode = "Horizontal",
                 group = "generalParams",  
 			},
 	    },
