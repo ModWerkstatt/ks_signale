@@ -1,0 +1,41 @@
+function data()
+return { 
+		boundingInfo = { 
+			bbMax = { 0.0287567, 0.0465371, 0.745874, },
+			bbMin = { -0.437041, -0.43988, -0.0438041, },
+		},
+		collider = { 
+			params = { 
+				halfExtents = { 1.25, 1.5, 4.75, },
+			},
+			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.75, -1.5, 4.75, 1, },
+			type = "BOX",
+		},
+		lods = {
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_schute_gr_lod0.msh",
+							name = "ks_schute_gr_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.35, 0.35, 1, },
+						},
+						{ 
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_off.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_led_gr_lod0.msh",
+							name = "ks_optik_led_gr_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.35, 0.36, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 150,
+			},
+		},
+		metadata = { },
+		version = 2,
+	}
+end

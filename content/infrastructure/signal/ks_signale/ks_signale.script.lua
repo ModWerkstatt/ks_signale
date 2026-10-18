@@ -17,9 +17,11 @@ function data()
         local offset_z_mast = 0
         local mastSelected = params.mw_ks_mast and params.mw_ks_mast or false
         local mastVSelected = params.mw_ks_vmast and params.mw_ks_vmast or false
-        local optikSelected = params.mw_ks_optik
+        local optikSelected = params.mw_ks_optik or 1
         local lichtSelected = params.mw_ks_asig_licht or params.mw_ks_bsig_licht or params.mw_ks_masig_licht or params.mw_ks_masig_asig_licht or params.mw_ks_vlicht
-        local showGreenLight = (optikSelected ~= 1 or lichtSelected ~= 1)
+        local showGreenLight = (optikSelected ~= 1 or lichtSelected ~= 1) 
+        local isLed = params.mw_ks_led and params.mw_ks_led == 1
+        local ledSuffix = isLed and "_led" or ""
 
         local offset = -(offset_x - 1)
 
@@ -72,7 +74,7 @@ function data()
         end
         local optik = ksOptik[optikSelected and optikSelected or 1]
         local greenLight = "hp0"
-        local redLight = "hp0.mdl"
+        local redLight = "hp0"
 
 
         -- poles and their variants
@@ -125,7 +127,7 @@ function data()
 
         -- lights and their positions
         if lichtSelected == 1 then -- Hp0
-      	    redLight = "hp0_hp0.mdl" -- no animation when hp0
+      	    redLight = "hp0_hp0" -- no animation when hp0
         elseif lichtSelected == 5 then -- Sh1
             lichtOffset_y_green = 0
             lichtOffset_z_green = 0
@@ -178,7 +180,7 @@ function data()
                 showGreenLight = false
             end
         elseif optikSelected == 6 then -- Vsig
-            redLight = "ks2_vsig.mdl"
+            redLight = "ks2_vsig"
             signalType = "WAYPOINT"
             if lichtSelected == 1 then -- Ks 1
                 greenLight = "ks1"
@@ -199,7 +201,7 @@ function data()
         table.insert(edgeModels, {
             edgeOffset = offset,
             model = {
-               id = resolve(redLight),
+               id = resolve(redLight .. ledSuffix .. ".mdl"),
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
             }
         })
@@ -228,7 +230,7 @@ function data()
          	table.insert(edgeModels, {
             	edgeOffset = offset,
                model = {
-               	id = resolve(greenLight .. ".mdl"),
+               	id = resolve(greenLight .. ledSuffix .. ".mdl"),
                   transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y+lichtOffset_y_green, optikOffset_z+lichtOffset_z_green, 1 }
          		}
          	})

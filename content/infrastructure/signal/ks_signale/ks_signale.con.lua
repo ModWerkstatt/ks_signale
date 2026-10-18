@@ -42,6 +42,17 @@ function data()
 		order = 1,
 		params = {
             {
+			    key = "mw_ks_led",
+			    name = _("LedType"),
+			    values = { _("Glühlampe"), _("LED"), },
+			    defaultIndex = 1,
+			    tooltip = _("tooltip_led"),
+                uiType = "Button",
+				yearFrom = 2020,
+                displayMode = "Horizontal",
+                postConstructionModifiable = true,
+		    },
+            {
 			    key = "mw_ks_optik",
 			    name = _("OptikType"),
 			    values = { _("Asig"), _("Bksig"), _("Msig"), _("MAsig"), _("MEsig"), _("Vsig"), },
