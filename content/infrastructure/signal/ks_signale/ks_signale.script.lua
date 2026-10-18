@@ -129,9 +129,6 @@ function data()
 
         -- led signal red light
         lichtOffset_z_red = optikOffset_z
-        if isLed then
-            lichtOffset_z_red = optikOffset_z-0.175
-        end
 
         -- lights and their positions
         if lichtSelected == 1 then -- Hp0
@@ -144,9 +141,7 @@ function data()
         if optikSelected == 1 then -- Asig
             if lichtSelected == 2 then -- Ks1
                 greenLight = "ks1"
-                if isLed then
-                    lichtOffset_z_green = lichtOffset_z_green-0.175
-                else 
+                if isLed == false then
                     lichtOffset_y_green = -0.15
                     lichtOffset_z_green = -0.05                    
                 end
@@ -160,10 +155,7 @@ function data()
         elseif optikSelected == 2 then -- Bsig
             if lichtSelected == 2 then -- Ks1
                 greenLight = "ks1"
-                if isLed then
-                    lichtOffset_z_red = lichtOffset_z_red-0.1
-                    lichtOffset_z_green = -0.15
-                else
+                if isLed == false then
                     lichtOffset_y_green = -0.15
                     lichtOffset_z_green = -0.05
                 end
@@ -173,16 +165,10 @@ function data()
         elseif optikSelected == 3 or optikSelected == 5 then -- MAsig / MASig Esig
             if lichtSelected == 2 then -- Ks1
                 greenLight = "ks1"
-                if isLed then
-                end
             elseif lichtSelected == 3 then -- Ks1b
                 greenLight = "ks1b"
-                if isLed then
-                end
             elseif lichtSelected == 4 then -- Ks2
                 greenLight = "ks2"
-                if isLed then
-                end
             elseif lichtSelected == 5 then -- Kennlicht
                 greenLight = "kennlicht_oben"
             elseif lichtSelected == 6 then -- Dunkelschaltung
@@ -191,16 +177,10 @@ function data()
         elseif optikSelected == 4 then -- MAsig Asig
             if lichtSelected == 2 then -- Ks1
                 greenLight = "ks1"
-                if isLed then
-                end
             elseif lichtSelected == 3 then -- Ks1b
                 greenLight = "ks1b"
-                if isLed then
-                end
             elseif lichtSelected == 4 then -- Ks2
                 greenLight = "ks2"
-                if isLed then
-                end
             elseif lichtSelected == 5 then -- Sh1
                 greenLight = "sh1"
             elseif lichtSelected == 6 then -- Kennlicht
