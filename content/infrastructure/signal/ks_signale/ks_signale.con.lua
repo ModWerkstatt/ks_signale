@@ -44,7 +44,7 @@ function data()
             {
 			    key = "mw_ks_led",
 			    name = _("LedType"),
-			    values = { _("Glühlampe"), _("LED"), },
+			    values = { _("Standard"), _("LED"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_led"),
                 uiType = "Button",
