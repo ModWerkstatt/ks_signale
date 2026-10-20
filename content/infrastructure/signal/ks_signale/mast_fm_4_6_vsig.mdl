@@ -29,12 +29,6 @@ return {
 						},
 						{ 
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
-							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_vorsignaltafel_lod0.msh",
-							name = "ks_vorsignaltafel_4",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 3.1, 1, },
-						},
-						{ 
-							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_halter_schilder_lod0.msh",
 							name = "ks_halter_schilder_5",
 							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 2.9, 1, },

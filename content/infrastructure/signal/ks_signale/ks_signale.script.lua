@@ -23,8 +23,13 @@ function data()
         local showGreenLight = (optikSelected ~= 1 or lichtSelected ~= 1) 
         local isLed = params.mw_ks_led and params.mw_ks_led == 2
         local ledSuffix = isLed and "_led" or ""
-
-        local offset = -(offset_x - 1)
+        local statusWiederholer = params.mw_ks_wiederholer or 1
+        local statusVkb = params.mw_ks_vkb or 1
+        local hasKennlicht = false
+        local hasPostMASign = false
+        local hasPostVSign = false
+        local offset = -(offset_x - 1)        
+        local mast
 
 		-- signal type
         local signalType = params.mw_ks_waypoint == 1 and "WAYPOINT" or "PATH_SIGNAL"
@@ -49,10 +54,10 @@ function data()
             mastOptikType = "msig"
         elseif optikType == "vsig" then
             mastOptikType = "vsig"
-        else mastOptikType = optikType
+        else
+            mastOptikType = optikType
         end
 
-        local mast
         if mastVSelected then
             local ksVMast = {
                 [1] = "mast_amhk_vsig_" .. sideSuffix .. ".mdl",
@@ -148,7 +153,7 @@ function data()
             elseif lichtSelected == 3 then -- Sh1
                 greenLight = "sh1"
             elseif lichtSelected == 4 then -- Kennlicht
-                greenLight = "kennlicht_oben"
+                greenLight = "licht_oben"
             elseif lichtSelected == 5 then -- Dunkelschaltung
                 showGreenLight = false
             end
@@ -170,7 +175,7 @@ function data()
             elseif lichtSelected == 4 then -- Ks2
                 greenLight = "ks2"
             elseif lichtSelected == 5 then -- Kennlicht
-                greenLight = "kennlicht_oben"
+                greenLight = "licht_oben"
             elseif lichtSelected == 6 then -- Dunkelschaltung
                 showGreenLight = false
             end
@@ -191,9 +196,7 @@ function data()
         elseif optikSelected == 6 then -- Vsig
             redLight = "ks2_vsig"
             signalType = "WAYPOINT"
-            if isLed then
-                lichtOffset_z_red = lichtOffset_z_red+0.175
-            end
+            lichtOffset_z_green = lichtOffset_z_green+0.05
 
             if lichtSelected == 1 then -- Ks 1
                 greenLight = "ks1"
@@ -208,11 +211,21 @@ function data()
                     lichtOffset_z_green = lichtOffset_z_green-0.2
                 end
             elseif lichtSelected == 3 then -- Ks2
-                greenLight = "ks2_vsig"
+                redLight = "ks2_ks2_vsig"
+                showGreenLight = false
             elseif lichtSelected == 4 then -- Kennlicht
-                greenLight = "kennlicht_oben"
+                redLight = "ks2_ks2_vsig"
+                showGreenLight = false
+                hasKennlicht = true
             elseif lichtSelected == 5 then -- Dunkelschaltung
                 showGreenLight = false
+            end
+        end
+
+        -- signs
+        if optikSelected == 6 then -- Vsig
+            if statusWiederholer == 1 then
+                hasPostVSign = true
             end
         end
 
@@ -247,6 +260,51 @@ function data()
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
          	}
         })
+        if hasPostMaSign then
+        elseif hasPostVSign then
+            table.insert(edgeModels, {
+                edgeOffset = offset,
+                model = {
+                   id = resolve("schild_vsig.mdl"),
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y, 0, 1 }
+             	}
+            })
+        end
+        if statusVkb > 1 or hasKennlicht then
+            if statusVkb == 2 or hasKennlicht then
+                table.insert(edgeModels, {
+                    edgeOffset = offset,
+                    model = {
+                   	    id = resolve("licht_oben.mdl"),
+                        transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
+             		}
+             	})
+            end
+            table.insert(edgeModels, {
+                edgeOffset = offset,
+                model = {
+               	    id = resolve("optik_licht_oben.mdl"),
+                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
+         		}
+         	})
+        elseif statusWiederholer >= 2 then
+            if statusWiederholer == 2 then
+                table.insert(edgeModels, {
+                	edgeOffset = offset,
+                    model = {
+                   	    id = resolve("licht_unten.mdl"),
+                        transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
+             		}
+             	})
+            end
+            table.insert(edgeModels, {
+            	edgeOffset = offset,
+                model = {
+               	    id = resolve("optik_licht_unten.mdl"),
+                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
+         		}
+         	})
+        end
         if showGreenLight then -- if Hp0 or Dunkelschaltung is selected, no extra light
          	table.insert(edgeModels, {
             	edgeOffset = offset,

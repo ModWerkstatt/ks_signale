@@ -1,8 +1,8 @@
 function data()
 return { 
 		boundingInfo = { 
-			bbMax = { 0, 0.844593, 0.888423, },
-			bbMin = { -4, -0.544593, -0.519257, },
+			bbMax = { 0, 0.894593, 0.0384226, },
+			bbMin = { -4, -0.494593, -1.36926, },
 		},
 		collider = { 
 			params = { 
@@ -33,7 +33,7 @@ return {
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_white.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_kl_lod0.msh",
 							name = "licht_weiss",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0.85, 1, },
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.2, 0.2, 1, },
 						},
 					},
 					name = "RootNode",
@@ -45,8 +45,8 @@ return {
 		},
 		metadata = { 
 			extent = { 
-				bbMax = { -0.00462133, 0.188423, 0.888423, },
-				bbMin = { -0.0100398, 0.111577, 0.811577, },
+				bbMax = { -0.00462133, 0.238423, 0.0384226, },
+				bbMin = { -0.0100398, 0.161577, -0.0384225, },
 			},
 			lightSourceList = { 
 				lights = {

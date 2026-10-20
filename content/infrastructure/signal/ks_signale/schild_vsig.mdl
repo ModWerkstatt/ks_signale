@@ -1,0 +1,40 @@
+function data()
+return { 
+		boundingInfo = { 
+			bbMax = { -0.155, -0.315, 2.375, },
+			bbMin = { -0.165, -0.835, 1.625, },
+		},
+		collider = { 
+			params = { 
+				halfExtents = { 0.00500003, 0.26, 0.375, },
+			},
+			transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16, -0.575, 2, 1, },
+			type = "BOX",
+		},
+		lods = {
+			{ 
+				node = { 
+					children = {
+						{ 
+							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
+							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_vorsignaltafel_lod0.msh",
+							name = "ks_vorsignaltafel",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16, -0.575, 2, 1, },
+						},
+					},
+					name = "RootNode",
+					transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
+				},
+				visibleFrom = 0,
+				visibleTo = 200,
+			},
+		},
+		metadata = { 
+			extent = { 
+				bbMax = { -0.155, -0.315, 2.375, },
+				bbMin = { -0.165, -0.835, 1.625, },
+			},
+		},
+		version = 2,
+	}
+end

@@ -176,19 +176,19 @@ function data()
 		    {
 			    key = "mw_ks_wiederholer",
 			    name = _("WiederholerType"),
-			    values = { "1", "2", },
+			    values = { _("No"), _("Yes"), _("nur Optik"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_wiederholer"),
-                uiType = "CheckBox",
+                uiType = "Button",
                 postConstructionModifiable = true,
 		    },
 		    {
 			    key = "mw_ks_vkb",
 			    name = _("VKBType"),
-			    values = { "1", "2", },
+			    values = { _("No"), _("Yes"), _("nur Optik"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_vkb"),
-                uiType = "CheckBox",
+                uiType = "Button",
                 postConstructionModifiable = true,
 		    },
 		    {
