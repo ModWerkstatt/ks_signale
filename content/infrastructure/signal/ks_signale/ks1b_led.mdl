@@ -17,6 +17,12 @@ return {
 					children = {
 						{ 
 							animations = { 
+								green = { 
+									params = { 
+										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/blink.ani",
+									},
+									type = "FILE_REF",
+								},
 								idle_green = { 
 									params = { 
 										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/blink.ani",

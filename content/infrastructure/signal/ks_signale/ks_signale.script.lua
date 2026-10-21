@@ -64,10 +64,10 @@ function data()
         }
         local optikType = ksOptik[optikSelected and optikSelected or 1]
         
-        if optikType ~= "msig" and optikType ~= "vsig" then
+        if ksOptik[optikSelected] ~= 3 and ksOptik[optikSelected] ~= 6 then
             mastOptikType = ksOptik[3]
-        elseif optikType == "vsig" then
-            mastOptikType = ksOptik[6]
+--        elseif ksOptik[optikSelected] == 6 then
+--            mastOptikType = ksOptik[6]
         else
             mastOptikType = optikType
         end
