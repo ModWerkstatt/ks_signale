@@ -26,7 +26,7 @@ function data()
         local statusWiederholer = params.mw_ks_wiederholer or 1
         local statusVkb = params.mw_ks_vkb or 1
         local hasKennlicht = false
-        local hasPostMASign = false
+        local hasPostMaSign = false
         local hasPostVSign = false
         local offset = -(offset_x - 1)        
         local mast
