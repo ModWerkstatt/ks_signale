@@ -30,26 +30,14 @@ return {
 						{ 
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_halter_schilder_lod0.msh",
-							name = "ks_halter_schilder_6",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 2.9, 1, },
+							name = "ks_halter_schilder_1",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 2.6, 1, },
 						},
 						{ 
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_halter_schilder_lod0.msh",
-							name = "ks_halter_schilder_7",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 3.3, 1, },
-						},
-						{ 
-							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
-							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_halter_schilder_lod0.msh",
-							name = "ks_halter_schilder_8",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 2, 1, },
-						},
-						{ 
-							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
-							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_halter_schilder_lod0.msh",
-							name = "ks_halter_schilder_9",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 2.3, 1, },
+							name = "ks_halter_schilder_2",
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.24, 0, 3.4, 1, },
 						},
 						{ 
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },

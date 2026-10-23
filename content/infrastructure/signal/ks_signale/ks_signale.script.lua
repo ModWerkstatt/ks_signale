@@ -10,9 +10,9 @@ function data()
         local offset_z = 0
         local optikOffset_y = -0.36+offset_y
         local optikOffset_y_green = 0
-        local vSignOffset_x = 0
-        local vSignOffset_y = 0
-        local vSignOffset_z = 0
+        local signOffset_x = 0
+        local signOffset_y = 0
+        local signOffset_z = 0
         local optikOffset_z = 0
         local optikOffset_z_green = 0
         local lichtOffset_y_green = 0
@@ -240,19 +240,54 @@ function data()
         end
 
         -- signs
-        if optikSelected == 6 then -- Vsig
+        if optikSelected <= 2 then -- Asig, BkSig
+            hasPostHSmallSign = true
+            if mastSelected == 4 then
+                signOffset_y = -0.425
+                signOffset_z = 0.8
+            elseif mastSelected >= 5 then
+                signOffset_x = -0.075
+                signOffset_y = 0.55
+                signOffset_z = 0.6
+                if mastSelected == 6 then
+                    signOffset_z = 0.3
+                end
+            end
+            signOffset_x = signOffset_x-0.17
+            signOffset_y = signOffset_y-0.575
+            signOffset_z = signOffset_z+2.05
+        elseif optikSelected >= 3 and optikSelected <= 5 then -- MASig
+            hasPostHWideSign = true
+            if mastSelected <= 3 then
+                signOffset_y = isLeft and 1.1 or 0
+                signOffset_z = 0.3
+            elseif mastSelected == 4 then
+                signOffset_y = isLeft and 1.55 or -0.425
+                signOffset_z = 0.8
+            elseif mastSelected >= 5 then
+                signOffset_x = -0.075
+                signOffset_y = 0.55
+                signOffset_z = 0.6
+                if mastSelected == 6 then
+                    signOffset_z = 0.3
+                end
+            end
+            signOffset_x = signOffset_x-0.16
+            signOffset_y = signOffset_y-0.55
+            signOffset_z = signOffset_z+1.6
+        elseif optikSelected == 6 then -- Vsig
             if statusWiederholer == 1 then
                 hasPostVSign = true
-                vSignOffset_x = -0.16
-                vSignOffset_z = 2
+                signOffset_x = -0.16
+                signOffset_z = 2
                 if mastVSelected == 1 then
-                    vSignOffset_y = isLeft and 0.6 or -0.6
+                    signOffset_y = isLeft and 0.6 or -0.6
                 elseif mastVSelected == 2 then
-                    vSignOffset_y = isLeft and 1.0 or -1.0
+                    signOffset_y = isLeft and 1.0 or -1.0
                 elseif mastVSelected >= 3 then
-                    vSignOffset_x = -0.23
-                    vSignOffset_y = 0
-                    vSignOffset_z = 2.5
+                    signOffset_x = -0.23
+                    signOffset_y = 0
+                    signOffset_z = 2.5
                 end
             end
         end
@@ -265,7 +300,7 @@ function data()
 						mesh = "ks_signale/halter/ks_zsa_halter_oben.msh",						
 						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 6.34, 1, },
 					},
-					{						
+					{				7		
 						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
 						mesh = "ks_signale/misc/ks_zsa.msh",						
 						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 6.53, 1, },
@@ -320,7 +355,7 @@ function data()
                 edgeOffset = offset,
                 model = {
                    id = resolve("schild_hsig_schmal.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.16, offset_y, 0, 1 }
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z, 1 }
              	}
             })
         elseif hasPostHWideSign then
@@ -328,7 +363,7 @@ function data()
                 edgeOffset = offset,
                 model = {
                    id = resolve("schild_hsig.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.16, offset_y, 0, 1 }
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z, 1 }
              	}
             })
         elseif hasPostVSign then
@@ -336,7 +371,7 @@ function data()
                 edgeOffset = offset,
                 model = {
                    id = resolve("schild_vsig.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, vSignOffset_x, offset_y+vSignOffset_y, vSignOffset_z, 1 }
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z, 1 }
              	}
             })
         end
@@ -345,7 +380,7 @@ function data()
                 edgeOffset = offset,
                 model = {
                    id = resolve("schild_msig.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.16, offset_y, 0, 1 }
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z-0.85, 1 }
              	}
             })
         end
