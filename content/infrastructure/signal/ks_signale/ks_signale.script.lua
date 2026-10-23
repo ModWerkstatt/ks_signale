@@ -6,7 +6,7 @@ function data()
 		local isLeft = params.mw_ks_trackpos == 1
         local sideSuffix = isLeft and "left" or "right"
         local offset_x = params.mw_ks_offset_x and params.mw_ks_offset_x or 0
-        local offset_y = isLeft and 2.85 or -2.15
+        local offset_y = isLeft and 2.15 or -2.15
         local offset_z = 0
         local optikOffset_y = -0.36+offset_y
         local optikOffset_y_green = 0
@@ -235,12 +235,39 @@ function data()
         end
 
         -- signs
+        local vSignOffset = 0
         if optikSelected == 6 then -- Vsig
             if statusWiederholer == 1 then
                 hasPostVSign = true
+                vSignOffset = isLeft and 1.15 or vSignOffset
             end
         end
 
+        -- zza
+        --[[
+					-- zza oben
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_zsa_halter_oben.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 6.34, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
+						mesh = "ks_signale/misc/ks_zsa.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 6.53, 1, },
+					},
+					-- zza unten
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
+						mesh = "ks_signale/halter/ks_zsa_halter.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.19, -2.5, 4.37, 1, },
+					},
+					{						
+						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
+						mesh = "ks_signale/misc/ks_zsa.msh",						
+						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, -2.5, 4.55, 1, },
+					},
+]]
 
 		-- build it
 		local edgeModels = {}
@@ -251,13 +278,15 @@ function data()
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, lichtOffset_z_red, 1 }
             }
         })
-        table.insert(edgeModels, {
-            edgeOffset = offset,
-            model = {
-               id = resolve(pzbMagnet),
-            	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1.05, 0.02, 1 }
-            }
-        })
+        if optikSelected ~= 6 and statusWiederholer ~= 1 then 
+            table.insert(edgeModels, {
+                edgeOffset = offset,
+                model = {
+                   id = resolve(pzbMagnet),
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1.05, 0.02, 1 }
+                }
+            })
+        end
         table.insert(edgeModels, {
             edgeOffset = offset,
             model = {
@@ -273,12 +302,19 @@ function data()
          	}
         })
         if hasPostMaSign then
+            table.insert(edgeModels, {
+                edgeOffset = offset,
+                model = {
+                   id = resolve("schild_msig.mdl"),
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y, 0, 1 }
+             	}
+            })
         elseif hasPostVSign then
             table.insert(edgeModels, {
                 edgeOffset = offset,
                 model = {
                    id = resolve("schild_vsig.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y, 0, 1 }
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y+vSignOffset, 0.1, 1 }
              	}
             })
         end

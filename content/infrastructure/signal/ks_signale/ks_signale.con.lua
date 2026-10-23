@@ -271,7 +271,6 @@ function data()
 				defaultIndex = 9,
 				tooltip = _("tooltip_offset"),
                 postConstructionModifiable = true,
-                displayMode = "Horizontal",
                 group = "generalParams",  
 			},
 	    },
