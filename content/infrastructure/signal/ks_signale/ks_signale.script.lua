@@ -10,6 +10,9 @@ function data()
         local offset_z = 0
         local optikOffset_y = -0.36+offset_y
         local optikOffset_y_green = 0
+        local vSignOffset_x = 0
+        local vSignOffset_y = 0
+        local vSignOffset_z = 0
         local optikOffset_z = 0
         local optikOffset_z_green = 0
         local lichtOffset_y_green = 0
@@ -28,6 +31,8 @@ function data()
         local hasKennlicht = false
         local hasPostMaSign = false
         local hasPostVSign = false
+        local hasPostHSmallSign = false
+        local hasPostHWideSign = false
         local offset = -(offset_x - 1)        
         local mast
         local mastOptikType
@@ -66,8 +71,6 @@ function data()
         
         if ksOptik[optikSelected] ~= 3 and ksOptik[optikSelected] ~= 6 then
             mastOptikType = ksOptik[3]
---        elseif ksOptik[optikSelected] == 6 then
---            mastOptikType = ksOptik[6]
         else
             mastOptikType = optikType
         end
@@ -180,6 +183,7 @@ function data()
                 showGreenLight = false
             end
         elseif optikSelected == 3 or optikSelected == 5 then -- MAsig / MASig Esig
+            hasPostMaSign = true
             if lichtSelected == 2 then -- Ks1
                 greenLight = licht_ks1
             elseif lichtSelected == 3 then -- Ks1b
@@ -192,6 +196,7 @@ function data()
                 showGreenLight = false
             end
         elseif optikSelected == 4 then -- MAsig Asig
+            hasPostMaSign = true
             if lichtSelected == 2 then -- Ks1
                 greenLight = licht_ks1
             elseif lichtSelected == 3 then -- Ks1b
@@ -235,11 +240,20 @@ function data()
         end
 
         -- signs
-        local vSignOffset = 0
         if optikSelected == 6 then -- Vsig
             if statusWiederholer == 1 then
                 hasPostVSign = true
-                vSignOffset = isLeft and 1.15 or vSignOffset
+                vSignOffset_x = -0.16
+                vSignOffset_z = 2
+                if mastVSelected == 1 then
+                    vSignOffset_y = isLeft and 0.6 or -0.6
+                elseif mastVSelected == 2 then
+                    vSignOffset_y = isLeft and 1.0 or -1.0
+                elseif mastVSelected >= 3 then
+                    vSignOffset_x = -0.23
+                    vSignOffset_y = 0
+                    vSignOffset_z = 2.5
+                end
             end
         end
 
@@ -301,12 +315,20 @@ function data()
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
          	}
         })
-        if hasPostMaSign then
+        if hasPostHSmallSign then
             table.insert(edgeModels, {
                 edgeOffset = offset,
                 model = {
-                   id = resolve("schild_msig.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y, 0, 1 }
+                   id = resolve("schild_hsig_schmal.mdl"),
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.16, offset_y, 0, 1 }
+             	}
+            })
+        elseif hasPostHWideSign then
+            table.insert(edgeModels, {
+                edgeOffset = offset,
+                model = {
+                   id = resolve("schild_hsig.mdl"),
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.16, offset_y, 0, 1 }
              	}
             })
         elseif hasPostVSign then
@@ -314,7 +336,16 @@ function data()
                 edgeOffset = offset,
                 model = {
                    id = resolve("schild_vsig.mdl"),
-                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y+vSignOffset, 0.1, 1 }
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, vSignOffset_x, offset_y+vSignOffset_y, vSignOffset_z, 1 }
+             	}
+            })
+        end
+        if hasPostMaSign then
+            table.insert(edgeModels, {
+                edgeOffset = offset,
+                model = {
+                   id = resolve("schild_msig.mdl"),
+                	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.16, offset_y, 0, 1 }
              	}
             })
         end

@@ -70,18 +70,6 @@ return {
 							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.11, 0, 5.7, 1, },
 						},
 						{ 
-							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
-							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_mastschild_hauptsignal_lod0.msh",
-							name = "ks_mastschild_hauptsignal_11",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16, 0.575, 2, 1, },
-						},
-						{ 
-							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
-							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_mastschild_vorsignal_lod0.msh",
-							name = "ks_mastschild_vorsignal_12",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16, 0.575, 1.15, 1, },
-						},
-						{ 
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_masten.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_aufsetzmast_lang_lod0.msh",
 							name = "ks_aufsetzmast_lang_13",

@@ -19,7 +19,7 @@ return {
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_signal_misc.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_mastschild_vorsignal_lod0.msh",
 							name = "ks_mastschild_vorsignal",
-							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.16, -0.575, 1.65, 1, },
+							transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, },
 						},
 					},
 					name = "RootNode",
