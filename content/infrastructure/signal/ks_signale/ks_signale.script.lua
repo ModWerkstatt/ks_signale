@@ -258,18 +258,20 @@ function data()
             signOffset_z = signOffset_z+2.05
         elseif optikSelected >= 3 and optikSelected <= 5 then -- MASig
             hasPostHWideSign = true
-            if mastSelected <= 3 then
-                signOffset_y = isLeft and 1.1 or 0
-                signOffset_z = 0.3
-            elseif mastSelected == 4 then
-                signOffset_y = isLeft and 1.55 or -0.425
-                signOffset_z = 0.8
-            elseif mastSelected >= 5 then
-                signOffset_x = -0.075
-                signOffset_y = 0.55
-                signOffset_z = 0.6
-                if mastSelected == 6 then
+            if type(mastSelected) == "number" then
+                if mastSelected <= 3 then
+                    signOffset_y = isLeft and 1.1 or 0
                     signOffset_z = 0.3
+                elseif mastSelected == 4 then
+                    signOffset_y = isLeft and 1.55 or -0.425
+                    signOffset_z = 0.8
+                elseif mastSelected >= 5 then
+                    signOffset_x = -0.075
+                    signOffset_y = 0.55
+                    signOffset_z = 0.6
+                    if mastSelected == 6 then
+                        signOffset_z = 0.3
+                    end
                 end
             end
             signOffset_x = signOffset_x-0.16
@@ -442,7 +444,7 @@ function data()
         result.edgeModels = edgeModels
 		result.cost = 20000
 		result.maintenanceCost = 5000
-debugPrint(result)
+
 		return result
 
 	end
