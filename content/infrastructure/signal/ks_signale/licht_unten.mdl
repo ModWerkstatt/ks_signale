@@ -15,21 +15,7 @@ return {
 			{ 
 				node = { 
 					children = {
-						{ 
-							animations = { 
-								green = { 
-									params = { 
-										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/on.ani",
-									},
-									type = "FILE_REF",
-								},
-								red = { 
-									params = { 
-										id = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/ani/off.ani",
-									},
-									type = "FILE_REF",
-								},
-							},
+						{
 							materials = { "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/mat/ks_optik_white.mtl", },
 							mesh = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/msh/ks_optik_kl_lod0.msh",
 							name = "licht_weiss",
