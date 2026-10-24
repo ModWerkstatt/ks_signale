@@ -426,10 +426,15 @@ function data()
             end
         end
         if showGreenLight then -- if Hp0 or Dunkelschaltung is selected, no extra light
+            local greenLightName = greenLight
+            if greenLight ~= licht_oben and isLed then
+                greenLightName = greenLight .. ledSuffix
+            end
+
          	table.insert(edgeModels, {
             	edgeOffset = offset,
                model = {
-               	id = resolve(greenLight .. ledSuffix .. ".mdl"),
+               	id = resolve(greenLightName .. ".mdl"),
                   transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y+lichtOffset_y_green, optikOffset_z+lichtOffset_z_green, 1 }
          		}
          	})
