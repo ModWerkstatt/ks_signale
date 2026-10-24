@@ -38,7 +38,7 @@ function data()
         local mastOptikType
         -- light mesh definition
         local licht_hp0 = "hp0"
-        local licht_hp0_hp0 = "hp0_hpo"
+        local licht_hp0_hp0 = "hp0_hp0"
         local licht_ks1 = "ks1"
         local licht_ks1b = "ks1b"
         local licht_ks2 = "ks2"
