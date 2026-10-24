@@ -4,9 +4,15 @@ function data()
         availability = {
 		    yearFrom = 1993,
 			yearTo = 0,
+			notifyWhenAvailable = false,
 		},
-        constructionType = "ASSET_TRACK",
         description = {
+            attributes = {
+			    cost = { 45000, -1, },
+			    maintenanceCost = { 7500, -1, },
+			    noise = { 0, -1, },
+			    pollution = { 0, -1, },
+		    },
       	    name = _("Ks-Signale"),
             description = _("Ks-signale Desc"),
             icon = "icons/ks_signale_icon_small.tga",
@@ -45,6 +51,9 @@ function data()
 		    road = false,
 		    water = false
 	    },
+        edgeObject = {
+	        snapToTrack = true,
+        },
 		order = 1,
 		params = {
             {
