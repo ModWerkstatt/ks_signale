@@ -30,6 +30,12 @@ function data()
             fileName = "ks_signale.script@updateFn",
          	params = { },
         },
+		configureHudIconsScript = {
+			fileName = "::/gui/construction/construction_desc_hud_icons.script@configureDepotHudIconsFn",
+			params = {
+				depotType = "RAIL",
+			}
+		},
 		isEdgeObject = true,
 	    buildMode = "MULTI",
 	    skipCollision = true,
