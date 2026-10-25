@@ -98,7 +98,7 @@ function data()
 
 
         -- poles and their variants
-        if mastSelected then
+        if type(mastSelected) == "number" then
             if mastSelected == 1 then     -- Amhk
                 optikOffset_z = 5.2
                 offset_z_mast = -0.2
@@ -126,7 +126,7 @@ function data()
              	optikOffset_y = optikOffset_y + 0.35
 		        offset_z_mast = -0.6
             end
-        elseif mastVSelected then
+        elseif type(mastVSelected) == "number" then
             if mastVSelected == 1 then     -- Amhk
                 optikOffset_z = 5.7
                 offset_z_mast = -0.2
@@ -242,15 +242,17 @@ function data()
         -- signs
         if optikSelected <= 2 then -- Asig, BkSig
             hasPostHSmallSign = true
-            if mastSelected == 4 then
-                signOffset_y = -0.425
-                signOffset_z = 0.8
-            elseif mastSelected >= 5 then
-                signOffset_x = -0.075
-                signOffset_y = 0.55
-                signOffset_z = 0.6
-                if mastSelected == 6 then
-                    signOffset_z = 0.3
+            if type(mastSelected) == "number" then
+                if mastSelected == 4 then
+                    signOffset_y = -0.425
+                    signOffset_z = 0.8
+                elseif mastSelected >= 5 then
+                    signOffset_x = -0.075
+                    signOffset_y = 0.55
+                    signOffset_z = 0.6
+                    if mastSelected == 6 then
+                        signOffset_z = 0.3
+                    end
                 end
             end
             signOffset_x = signOffset_x-0.17
@@ -282,14 +284,16 @@ function data()
                 hasPostVSign = true
                 signOffset_x = -0.16
                 signOffset_z = 2
-                if mastVSelected == 1 then
-                    signOffset_y = isLeft and 0.6 or -0.6
-                elseif mastVSelected == 2 then
-                    signOffset_y = isLeft and 1.0 or -1.0
-                elseif mastVSelected >= 3 then
-                    signOffset_x = -0.23
-                    signOffset_y = 0
-                    signOffset_z = 2.5
+                if type(mastVSelected) == "number" then
+                    if mastVSelected == 1 then
+                        signOffset_y = isLeft and 0.6 or -0.6
+                    elseif mastVSelected == 2 then
+                        signOffset_y = isLeft and 1.0 or -1.0
+                    elseif mastVSelected >= 3 then
+                        signOffset_x = -0.23
+                        signOffset_y = 0
+                        signOffset_z = 2.5
+                    end
                 end
             end
         end
@@ -442,10 +446,10 @@ function data()
 
         -- result
         local result = {}
-		   result.signal = {
-			   soundevent = "",
-				type = signalType,
-		   }
+        result.signal = {
+		    soundevent = "",
+			type = signalType,
+	    }
         result.edgeModels = edgeModels
 		result.cost = 20000
 		result.maintenanceCost = 5000
