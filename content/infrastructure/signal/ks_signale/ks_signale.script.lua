@@ -333,7 +333,7 @@ function data()
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, lichtOffset_z_red, 1 }
             }
         })
-        if optikSelected ~= 6 and statusWiederholer ~= 1 then 
+        if optikSelected ~= 6 or statusWiederholer ~= 2 then 
             table.insert(edgeModels, {
                 edgeOffset = offset,
                 model = {
