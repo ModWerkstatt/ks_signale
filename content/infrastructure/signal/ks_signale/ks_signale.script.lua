@@ -33,6 +33,7 @@ function data()
         local hasPostVSign = false
         local hasPostHSmallSign = false
         local hasPostHWideSign = false
+        local statusZSAoben = params.mw_ks_zusatz_oben > 1 and params.mw_ks_zusatz_oben
         local offset = -(offset_x - 1)        
         local mast
         local mastOptikType
@@ -49,6 +50,7 @@ function data()
         local licht_unten = "licht_unten"
         local greenLight = licht_hp0
         local redLight = licht_hp0
+        local zsaOben
 
 		-- signal type
         local signalType = params.mw_ks_waypoint == 1 and "WAYPOINT" or "PATH_SIGNAL"
@@ -298,7 +300,15 @@ function data()
             end
         end
 
-        -- zza
+        -- zsa
+        if statusZSAoben then
+            if statusZSAoben > 1 and statusZSAoben <= 15 then -- ZSA3 display
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_" .. statusZSAoben .. "0.mdl"
+            elseif statusZSAoben > 15 then -- zsa tafel
+            end
+        end
+debugPrint(statusZSAoben)
+debugPrint(zsaOben)
         --[[
 					-- zza oben
 					{						
@@ -436,13 +446,33 @@ function data()
             end
 
          	table.insert(edgeModels, {
-            	edgeOffset = offset,
-               model = {
-               	id = resolve(greenLightName .. ".mdl"),
-                  transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y+lichtOffset_y_green, optikOffset_z+lichtOffset_z_green, 1 }
+                edgeOffset = offset,
+                model = {
+               	    id = resolve(greenLightName .. ".mdl"),
+                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y+lichtOffset_y_green, optikOffset_z+lichtOffset_z_green, 1 }
          		}
          	})
         end
+        -- zsa
+        if statusZSAoben ~= false then
+            table.insert(edgeModels, {
+            	edgeOffset = offset,
+                model = {
+               	    id = resolve("mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_halter_oben.mdl"),
+                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.32, offset_y, offset_z_mast+6.34, 1 }
+         		}
+         	})
+            if statusZSAoben > 1 then
+                table.insert(edgeModels, {
+                	edgeOffset = offset,
+                    model = {
+                   	    id = resolve(zsaOben),
+                        transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, offset_y, offset_z_mast+6.78, 1 }
+             		}
+             	})
+            end
+        end
+        
 
         -- result
         local result = {}
