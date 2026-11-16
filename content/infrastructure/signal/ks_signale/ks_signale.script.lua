@@ -304,18 +304,23 @@ function data()
 
         -- zsa
         if statusZSAoben then
-            if statusZSAoben > 2 and statusZSAoben <= 15 then -- ZSA3 display
+            if statusZSAoben == 2 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_oben_basis.mdl"
+                offset_x_zsa = -0.32
+                offset_z_zsa = 6.33
+            elseif statusZSAoben > 2 and statusZSAoben <= 15 then -- ZSA3 display
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_" .. statusZSAoben .. "0.mdl"
-                offset_x_zsa = -0.36
-                offset_z_zsa = 6.78
+                offset_x_zsa = -0.32
+                offset_z_zsa = 6.33
             elseif statusZSAoben > 15 and statusZSAoben < 30 then -- zsa tafel
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_" .. statusZSAoben-13 .. "0.mdl"
-                offset_x_zsa = -0.25
-                offset_z_zsa = 0.2
+                offset_x_zsa = -0.01
+                offset_z_zsa = 0.28
             elseif statusZSAoben == 30 then
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_200.mdl"
-                offset_x_zsa = -0.25
-                offset_z_zsa = 0.2
+                offset_x_zsa = -0.01
+                offset_z_zsa = 0.28
+            elseif statusZSAoben > 30 then
             end
         end
 
@@ -444,19 +449,10 @@ function data()
             table.insert(edgeModels, {
             	edgeOffset = offset,
                 model = {
-               	    id = resolve("mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_halter_oben.mdl"),
-                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.32, offset_y, offset_z_mast+6.34, 1 }
+               	    id = resolve(zsaOben),
+                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, offset_x_zsa, offset_y, offset_z_mast+offset_z_zsa, 1 }
          		}
          	})
-            if zsaOben ~= false and statusZSAoben > 1 then
-                table.insert(edgeModels, {
-                	edgeOffset = offset,
-                    model = {
-                   	    id = resolve(zsaOben),
-                        transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, offset_y, offset_z_mast+offset_z_zsa, 1 }
-             		}
-             	})
-            end
         end
         
 
