@@ -19,6 +19,8 @@ function data()
         local lichtOffset_z_green = 0
         local lichtOffset_z_red = 0
         local offset_z_mast = 0
+        local offset_x_zsa = 0
+        local offset_z_zsa = 0
         local mastSelected = params.mw_ks_mast and params.mw_ks_mast or false
         local mastVSelected = params.mw_ks_vmast and params.mw_ks_vmast or false
         local optikSelected = params.mw_ks_optik or 1
@@ -50,7 +52,7 @@ function data()
         local licht_unten = "licht_unten"
         local greenLight = licht_hp0
         local redLight = licht_hp0
-        local zsaOben
+        local zsaOben = false
 
 		-- signal type
         local signalType = params.mw_ks_waypoint == 1 and "WAYPOINT" or "PATH_SIGNAL"
@@ -302,37 +304,21 @@ function data()
 
         -- zsa
         if statusZSAoben then
-            if statusZSAoben > 1 and statusZSAoben <= 15 then -- ZSA3 display
+            if statusZSAoben > 2 and statusZSAoben <= 15 then -- ZSA3 display
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_" .. statusZSAoben .. "0.mdl"
-            elseif statusZSAoben > 15 then -- zsa tafel
+                offset_x_zsa = -0.36
+                offset_z_zsa = 6.78
+            elseif statusZSAoben > 15 and statusZSAoben < 30 then -- zsa tafel
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_" .. statusZSAoben-13 .. "0.mdl"
+                offset_x_zsa = -0.25
+                offset_z_zsa = 0.2
+            elseif statusZSAoben == 30 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_200.mdl"
+                offset_x_zsa = -0.25
+                offset_z_zsa = 0.2
             end
         end
-debugPrint(statusZSAoben)
-debugPrint(zsaOben)
-        --[[
-					-- zza oben
-					{						
-						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
-						mesh = "ks_signale/halter/ks_zsa_halter_oben.msh",						
-						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 6.34, 1, },
-					},
-					{				7		
-						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
-						mesh = "ks_signale/misc/ks_zsa.msh",						
-						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, -2.5, 6.53, 1, },
-					},
-					-- zza unten
-					{						
-						materials = { "ks_signale/misc/ks_signal_misc.mtl", },
-						mesh = "ks_signale/halter/ks_zsa_halter.msh",						
-						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.19, -2.5, 4.37, 1, },
-					},
-					{						
-						materials = { "ks_signale/misc/ks_signal_misc.mtl", "ks_signale/misc/ks_zsa_scheibe.mtl", },
-						mesh = "ks_signale/misc/ks_zsa.msh",						
-						transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, -2.5, 4.55, 1, },
-					},
-]]
+
 
 		-- build it
 		local edgeModels = {}
@@ -462,12 +448,12 @@ debugPrint(zsaOben)
                     transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.32, offset_y, offset_z_mast+6.34, 1 }
          		}
          	})
-            if statusZSAoben > 1 then
+            if zsaOben ~= false and statusZSAoben > 1 then
                 table.insert(edgeModels, {
                 	edgeOffset = offset,
                     model = {
                    	    id = resolve(zsaOben),
-                        transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, offset_y, offset_z_mast+6.78, 1 }
+                        transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.36, offset_y, offset_z_mast+offset_z_zsa, 1 }
              		}
              	})
             end
