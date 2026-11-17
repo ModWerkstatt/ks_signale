@@ -209,7 +209,7 @@ function data()
 		    {
 			    key = "mw_ks_zusatz_oben",
 			    name = _("ZusatzObenType"),
-			    values = { _("ohne"), _("aus"), _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs3_16_tafel"), _("Zs3_20_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_L"), _("Zs2_M"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
+			    values = { _("ohne"), _("aus"), _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs3_16_tafel"), _("Zs3_20_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_G"), _("Zs2_H"), _("Zs2_K"), _("Zs2_L"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_oben"),
 				uiType = "ComboBox",
@@ -218,7 +218,7 @@ function data()
 		    {
 			    key = "mw_ks_zusatz_unten1",
 			    name = _("ZusatzUnten1Type"),
-			    values = { _("ohne"), _("aus"),  _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs3_16_tafel"), _("Zs3_20_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_L"), _("Zs2_M"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), _("Zs13"), },
+			    values = { _("ohne"), _("aus"),  _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs3_16_tafel"), _("Zs3_20_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_G"), _("Zs2_H"), _("Zs2_K"), _("Zs2_L"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), _("Zs13"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_unten1"),
                 uiType = "ComboBox",
@@ -227,7 +227,7 @@ function data()
             {
 			    key = "mw_ks_zusatz_unten2",
 			    name = _("ZusatzUnten2Type"),
-			    values = { _("ohne"), _("aus"),  _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs3_16_tafel"), _("Zs3_20_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_L"), _("Zs2_M"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
+			    values = { _("ohne"), _("aus"),  _("Zs3_3"), _("Zs3_4"), _("Zs3_5"), _("Zs3_6"), _("Zs3_7"), _("Zs3_8"), _("Zs3_9"), _("Zs3_10"), _("Zs3_11"), _("Zs3_12"), _("Zs3_13"), _("Zs3_14"), _("Zs3_15"), _("Zs3_3_tafel"), _("Zs3_4_tafel"), _("Zs3_5_tafel"), _("Zs3_6_tafel"), _("Zs3_7_tafel"), _("Zs3_8_tafel"), _("Zs3_9_tafel"), _("Zs3_10_tafel"), _("Zs3_11_tafel"), _("Zs3_12_tafel"), _("Zs3_13_tafel"), _("Zs3_14_tafel"), _("Zs3_15_tafel"), _("Zs3_16_tafel"), _("Zs3_20_tafel"), _("Zs6"),  _("Zs6_tafel"), _("Zs2_F"), _("Zs2_G"), _("Zs2_H"), _("Zs2_K"), _("Zs2_L"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
 			    defaultIndex = 1,
 			    tooltip = _("tooltip_zusatz_unten2"),
                 uiType = "ComboBox",

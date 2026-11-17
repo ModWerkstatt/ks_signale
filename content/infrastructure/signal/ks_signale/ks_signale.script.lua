@@ -304,14 +304,14 @@ function data()
 
         -- zsa
         if statusZSAoben then
+            --default position, set different below if needed
+            offset_x_zsa = -0.32
+            offset_z_zsa = 0.95
+
             if statusZSAoben == 2 then
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_oben_basis.mdl"
-                offset_x_zsa = -0.32
-                offset_z_zsa = 6.33
             elseif statusZSAoben > 2 and statusZSAoben <= 15 then -- ZSA3 display
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_" .. statusZSAoben .. "0.mdl"
-                offset_x_zsa = -0.32
-                offset_z_zsa = 6.33
             elseif statusZSAoben > 15 and statusZSAoben < 30 then -- zsa tafel
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_" .. statusZSAoben-13 .. "0.mdl"
                 offset_x_zsa = -0.01
@@ -320,7 +320,30 @@ function data()
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_200.mdl"
                 offset_x_zsa = -0.01
                 offset_z_zsa = 0.28
-            elseif statusZSAoben > 30 then
+            elseif statusZSAoben == 31 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_zs6.mdl"
+            elseif statusZSAoben == 32 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs6_tafel.mdl"
+                offset_x_zsa = -0.01
+                offset_z_zsa = 0.28
+            elseif statusZSAoben == 33 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_f.mdl"
+            elseif statusZSAoben == 34 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_g.mdl"
+            elseif statusZSAoben == 35 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_h.mdl"
+            elseif statusZSAoben == 36 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_k.mdl"
+            elseif statusZSAoben == 37 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_l.mdl"
+            elseif statusZSAoben == 38 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_p.mdl"
+            elseif statusZSAoben == 39 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_r.mdl"
+            elseif statusZSAoben == 40 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_s.mdl"
+            elseif statusZSAoben == 41 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_u.mdl"
             end
         end
 
@@ -450,7 +473,7 @@ function data()
             	edgeOffset = offset,
                 model = {
                	    id = resolve(zsaOben),
-                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, offset_x_zsa, offset_y, offset_z_mast+offset_z_zsa, 1 }
+                    transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, offset_x_zsa, offset_y, optikOffset_z+offset_z_zsa, 1 }
          		}
          	})
         end
