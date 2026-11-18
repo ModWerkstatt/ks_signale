@@ -214,6 +214,29 @@ function data()
 			    tooltip = _("tooltip_zusatz_oben"),
 				uiType = "ComboBox",
                 postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/hauptsignal_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 6,
+                    },
+                },
+	        },
+		    {
+			    key = "mw_ks_vs_zusatz_oben",
+			    name = _("ZusatzVsObenType"),
+			    values = { _("ohne"), _("aus"), _("Zs3v_3"), _("Zs3v_4"), _("Zs3v_5"), _("Zs3v_6"), _("Zs3v_7"), _("Zs3v_8"), _("Zs3v_9"), _("Zs3v_10"), _("Zs3v_11"), _("Zs3v_12"), _("Zs3v_13"), _("Zs3v_14"), _("Zs3v_15"), _("Zs2_F"), _("Zs2_G"), _("Zs2_H"), _("Zs2_K"), _("Zs2_L"), _("Zs2_P"), _("Zs2_R"), _("Zs2_S"), _("Zs2_U"), },
+			    defaultIndex = 1,
+			    tooltip = _("tooltip_zusatz_oben"),
+				uiType = "ComboBox",
+                postConstructionModifiable = true,
+                checkEnabledScript = {
+            	    fileName = "script/optik_licht_construction.script@checkEnabledFn",
+                    params = {
+                        key = "mw_ks_optik",
+                        threshold = 6,
+                    },
+                },
 	        },
 		    {
 			    key = "mw_ks_zusatz_unten1",
