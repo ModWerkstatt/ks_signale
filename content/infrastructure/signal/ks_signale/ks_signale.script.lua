@@ -248,7 +248,7 @@ function data()
             hasPostHSmallSign = true
             if type(mastSelected) == "number" then
                 if mastSelected == 4 then
-                    signOffset_y = -0.425
+                    signOffset_y = isLeft and 1.575 or -0.425
                     signOffset_z = 0.8
                 elseif mastSelected >= 5 then
                     signOffset_x = -0.075
