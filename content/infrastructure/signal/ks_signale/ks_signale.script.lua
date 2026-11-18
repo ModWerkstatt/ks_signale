@@ -23,7 +23,7 @@ function data()
         local offset_z_zsa = 0
         local mastSelected = params.mw_ks_mast and params.mw_ks_mast or false
         local mastVSelected = params.mw_ks_vmast and params.mw_ks_vmast or false
-        local optikSelected = tonumber(params.mw_ks_optik) or 1
+        local optikSelected = params.mw_ks_optik or 1
         local lichtSelected = params.mw_ks_asig_licht or params.mw_ks_bsig_licht or params.mw_ks_masig_licht or params.mw_ks_masig_asig_licht or params.mw_ks_vlicht
         local showGreenLight = (optikSelected ~= 1 or lichtSelected ~= 1) 
         local isLed = params.mw_ks_led and params.mw_ks_led == 2 or false
@@ -35,8 +35,7 @@ function data()
         local hasPostVSign = false
         local hasPostHSmallSign = false
         local hasPostHWideSign = false
-        local zsaParam = (optikSelected == 6) and params.mw_ks_vs_zusatz_oben or params.mw_ks_zusatz_oben
-        local statusZSAoben = tonumber(zsaParam) or 1
+        local statusZSAoben = tonumber(params.mw_ks_zusatz_oben) or 1
         local offset = -(offset_x - 1)        
         local mast
         local mastOptikType
@@ -309,68 +308,42 @@ function data()
             offset_x_zsa = -0.32
             offset_z_zsa = 0.95
 
-            if optikSelected ~= 6 then -- all beside Vsig
-                if statusZSAoben == 2 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_oben_basis.mdl"
-                elseif statusZSAoben > 2 and statusZSAoben <= 15 then -- Zs3 display
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_" .. statusZSAoben .. "0.mdl"
-                elseif statusZSAoben > 15 and statusZSAoben < 30 then -- Zs3 tafel
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_" .. statusZSAoben-13 .. "0.mdl"
-                    offset_x_zsa = -0.01
-                    offset_z_zsa = -5.1
-                elseif statusZSAoben == 30 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_200.mdl"
-                    offset_x_zsa = -0.01
-                    offset_z_zsa = -5.1
-                elseif statusZSAoben == 31 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_zs6.mdl"
-                elseif statusZSAoben == 32 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs6_tafel.mdl"
-                    offset_x_zsa = -0.01
-                    offset_z_zsa = -5.1
-                elseif statusZSAoben == 33 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_f.mdl"
-                elseif statusZSAoben == 34 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_g.mdl"
-                elseif statusZSAoben == 35 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_h.mdl"
-                elseif statusZSAoben == 36 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_k.mdl"
-                elseif statusZSAoben == 37 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_l.mdl"
-                elseif statusZSAoben == 38 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_p.mdl"
-                elseif statusZSAoben == 39 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_r.mdl"
-                elseif statusZSAoben == 40 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_s.mdl"
-                elseif statusZSAoben == 41 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_u.mdl"
-                end
-            else -- Vsig
-                if statusZSAoben == 2 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_oben_basis.mdl"
-                elseif statusZSAoben > 2 and statusZSAoben <= 15 then -- Zs3v display
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3v_" .. statusZSAoben .. "0.mdl"
-                elseif statusZSAoben == 16 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_f.mdl"
-                elseif statusZSAoben == 17 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_g.mdl"
-                elseif statusZSAoben == 18 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_h.mdl"
-                elseif statusZSAoben == 19 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_k.mdl"
-                elseif statusZSAoben == 20 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_l.mdl"
-                elseif statusZSAoben == 21 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_p.mdl"
-                elseif statusZSAoben == 22 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_r.mdl"
-                elseif statusZSAoben == 23 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_s.mdl"
-                elseif statusZSAoben == 24 then
-                    zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_u.mdl"
-                end
+            if statusZSAoben == 2 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_oben_basis.mdl"
+            elseif statusZSAoben > 2 and statusZSAoben <= 15 then -- ZSA3 display
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_" .. statusZSAoben .. "0.mdl"
+            elseif statusZSAoben > 15 and statusZSAoben < 30 then -- zsa tafel
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_" .. statusZSAoben-13 .. "0.mdl"
+                offset_x_zsa = -0.01
+                offset_z_zsa = -5.1
+            elseif statusZSAoben == 30 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_200.mdl"
+                offset_x_zsa = -0.01
+                offset_z_zsa = -5.1
+            elseif statusZSAoben == 31 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_zs6.mdl"
+            elseif statusZSAoben == 32 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs6_tafel.mdl"
+                offset_x_zsa = -0.01
+                offset_z_zsa = -5.1
+            elseif statusZSAoben == 33 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_f.mdl"
+            elseif statusZSAoben == 34 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_g.mdl"
+            elseif statusZSAoben == 35 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_h.mdl"
+            elseif statusZSAoben == 36 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_k.mdl"
+            elseif statusZSAoben == 37 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_l.mdl"
+            elseif statusZSAoben == 38 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_p.mdl"
+            elseif statusZSAoben == 39 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_r.mdl"
+            elseif statusZSAoben == 40 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_s.mdl"
+            elseif statusZSAoben == 41 then
+                zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_u.mdl"
             end
         end
 
