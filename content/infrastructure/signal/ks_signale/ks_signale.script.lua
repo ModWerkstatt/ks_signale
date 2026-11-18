@@ -35,7 +35,7 @@ function data()
         local hasPostVSign = false
         local hasPostHSmallSign = false
         local hasPostHWideSign = false
-        local statusZSAoben = params.mw_ks_zusatz_oben > 1 and params.mw_ks_zusatz_oben
+        local statusZSAoben = tonumber(params.mw_ks_zusatz_oben) or 1
         local offset = -(offset_x - 1)        
         local mast
         local mastOptikType
@@ -303,7 +303,7 @@ function data()
         end
 
         -- zsa
-        if statusZSAoben then
+        if statusZSAoben > 1 then
             --default position, set different below if needed
             offset_x_zsa = -0.32
             offset_z_zsa = 0.95
@@ -315,17 +315,17 @@ function data()
             elseif statusZSAoben > 15 and statusZSAoben < 30 then -- zsa tafel
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_" .. statusZSAoben-13 .. "0.mdl"
                 offset_x_zsa = -0.01
-                offset_z_zsa = 0.28
+                offset_z_zsa = -5.1
             elseif statusZSAoben == 30 then
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs3_tafel_200.mdl"
                 offset_x_zsa = -0.01
-                offset_z_zsa = 0.28
+                offset_z_zsa = -5.1
             elseif statusZSAoben == 31 then
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zsa_zs6.mdl"
             elseif statusZSAoben == 32 then
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs6_tafel.mdl"
                 offset_x_zsa = -0.01
-                offset_z_zsa = 0.28
+                offset_z_zsa = -5.1
             elseif statusZSAoben == 33 then
                 zsaOben = "mw_signalkomponenten::/infrastructure/signal/mw_signalkomponenten/zs2_f.mdl"
             elseif statusZSAoben == 34 then
@@ -468,7 +468,7 @@ function data()
          	})
         end
         -- zsa
-        if statusZSAoben ~= false then
+        if statusZSAoben > 1 then
             table.insert(edgeModels, {
             	edgeOffset = offset,
                 model = {
