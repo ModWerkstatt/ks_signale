@@ -29,11 +29,7 @@ return {
 				visibleTo = 200,
 			},
 		},
-		metadata = { 
-			extent = { 
-				bbMax = { -0.00462133, 0.238423, 0.0384226, },
-				bbMin = { -0.0100398, 0.161577, -0.0384225, },
-			},
+		metadata = {
 			lightSourceList = { 
 				lights = {
 					{ 

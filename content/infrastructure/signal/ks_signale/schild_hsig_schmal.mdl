@@ -29,12 +29,7 @@ return {
 				visibleTo = 200,
 			},
 		},
-		metadata = { 
-			extent = { 
-				bbMax = { 0.01, 0.035, 0.6, },
-				bbMin = { 0, -0.035, -0.6, },
-			},
-		},
+		metadata = { },
 		version = 2,
 	}
 end

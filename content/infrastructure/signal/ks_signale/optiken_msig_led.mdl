@@ -83,12 +83,7 @@ return {
 				visibleTo = 150,
 			},
 		},
-		metadata = { 
-			extent = { 
-				bbMax = { 0.0287567, 0.23988, 0.895874, },
-				bbMin = { -0.437041, -0.23988, -0.0438041, },
-			},
-		},
+		metadata = { },
 		version = 2,
 	}
 end
