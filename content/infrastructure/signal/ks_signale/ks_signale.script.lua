@@ -36,7 +36,6 @@ function data()
         local hasPostHSmallSign = false
         local hasPostHWideSign = false
         local statusZSAoben = tonumber(params.mw_ks_zusatz_oben) or 1
-        local offset = -(offset_x - 1)        
         local mast
         local mastOptikType
         -- light mesh definition
@@ -351,7 +350,7 @@ function data()
 		-- build it
 		local edgeModels = {}
         table.insert(edgeModels, {
-            edgeOffset = offset,
+            edgeOffset = -offset_x,
             model = {
                id = resolve(redLight .. ledSuffix .. ".mdl"),
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, lichtOffset_z_red, 1 }
@@ -359,7 +358,7 @@ function data()
         })
         if optikSelected ~= 6 or statusWiederholer ~= 2 then 
             table.insert(edgeModels, {
-                edgeOffset = offset,
+                edgeOffset = -offset_x,
                 model = {
                    id = resolve(pzbMagnet),
                 	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -1.05, 0.02, 1 }
@@ -367,14 +366,14 @@ function data()
             })
         end
         table.insert(edgeModels, {
-            edgeOffset = offset,
+            edgeOffset = -offset_x,
             model = {
                id = resolve(mast),
                transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, offset_y, offset_z_mast, 1 }
             }
         })
         table.insert(edgeModels, {
-            edgeOffset = offset,
+            edgeOffset = -offset_x,
             model = {
                id = resolve("optiken_" .. optikType .. ledSuffix .. ".mdl"),
             	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
@@ -382,7 +381,7 @@ function data()
         })
         if hasPostHSmallSign then
             table.insert(edgeModels, {
-                edgeOffset = offset,
+                edgeOffset = -offset_x,
                 model = {
                    id = resolve("schild_hsig_schmal.mdl"),
                 	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z, 1 }
@@ -390,7 +389,7 @@ function data()
             })
         elseif hasPostHWideSign then
             table.insert(edgeModels, {
-                edgeOffset = offset,
+                edgeOffset = -offset_x,
                 model = {
                    id = resolve("schild_hsig.mdl"),
                 	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z, 1 }
@@ -398,7 +397,7 @@ function data()
             })
         elseif hasPostVSign then
             table.insert(edgeModels, {
-                edgeOffset = offset,
+                edgeOffset = -offset_x,
                 model = {
                    id = resolve("schild_vsig.mdl"),
                 	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z, 1 }
@@ -407,7 +406,7 @@ function data()
         end
         if hasPostMaSign then
             table.insert(edgeModels, {
-                edgeOffset = offset,
+                edgeOffset = -offset_x,
                 model = {
                    id = resolve("schild_msig.mdl"),
                 	transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, signOffset_x, offset_y+signOffset_y, signOffset_z-0.85, 1 }
@@ -417,7 +416,7 @@ function data()
         if statusVkb > 1 or hasKennlicht then
             if statusVkb == 2 or hasKennlicht then
                 table.insert(edgeModels, {
-                    edgeOffset = offset,
+                    edgeOffset = -offset_x,
                     model = {
                    	    id = resolve(licht_oben .. ".mdl"),
                         transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
@@ -426,7 +425,7 @@ function data()
             end
             if optikSelected == 6 then -- Vsig
                 table.insert(edgeModels, {
-                    edgeOffset = offset,
+                    edgeOffset = -offset_x,
                     model = {
                    	    id = resolve("optik_licht_oben.mdl"),
                         transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
@@ -436,7 +435,7 @@ function data()
         elseif statusWiederholer >= 2 then
             if statusWiederholer == 2 then
                 table.insert(edgeModels, {
-                	edgeOffset = offset,
+                	edgeOffset = -offset_x,
                     model = {
                    	    id = resolve(licht_unten .. ".mdl"),
                         transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
@@ -445,7 +444,7 @@ function data()
             end
             if optikSelected == 6 then -- Vsig
                 table.insert(edgeModels, {
-                	edgeOffset = offset,
+                	edgeOffset = -offset_x,
                     model = {
                    	    id = resolve("optik_licht_unten.mdl"),
                         transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y, optikOffset_z, 1 }
@@ -460,7 +459,7 @@ function data()
             end
 
          	table.insert(edgeModels, {
-                edgeOffset = offset,
+                edgeOffset = -offset_x,
                 model = {
                	    id = resolve(greenLightName .. ".mdl"),
                     transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.45, optikOffset_y+lichtOffset_y_green, optikOffset_z+lichtOffset_z_green, 1 }
@@ -470,7 +469,7 @@ function data()
         -- zsa
         if statusZSAoben > 1 then
             table.insert(edgeModels, {
-            	edgeOffset = offset,
+            	edgeOffset = -offset_x,
                 model = {
                	    id = resolve(zsaOben),
                     transf = { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, offset_x_zsa, offset_y, optikOffset_z+offset_z_zsa, 1 }
